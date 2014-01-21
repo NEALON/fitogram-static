@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require twitter/bootstrap
+//= require jquery_nested_form
+//= require fullcalendar.min
+//= require jquery.ui.draggable
+//= require jquery.ui.resizable
+//= require jquery.ui.datepicker
+//= require jquery.ui.map.min
+//= require jquery.ui.autocomplete

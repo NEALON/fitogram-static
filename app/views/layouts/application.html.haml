@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Fitogram
+    %meta{charset: "utf-8"}/
+    %meta{content: "", name: "description"}/
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false&libraries=places", "data-turbolinks-track" => true
+    - if content_for?(:html_head)
+      = yield(:html_head)
+    = csrf_meta_tags
+  %body
+    = yield
