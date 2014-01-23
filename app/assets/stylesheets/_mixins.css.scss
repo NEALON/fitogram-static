@@ -1,0 +1,85 @@
+// Provides a cross-browser method to implement display: inline-block;.
+@mixin inline-block {
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+// This module provides tools needed to lay out your footer such that it sticks to the bottom of the page.
+@mixin sticky-footer($footer-height, $root-selector: unquote("#root"), $root-footer-selector: unquote("#root_footer"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%;
+  }
+  #{$root-selector} {
+    clear: both;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$root-footer-selector} {
+      height: $footer-height;
+    }
+  }
+  #{$footer-selector} {
+    clear: both;
+    position: relative;
+    height: $footer-height;
+  }
+}
+
+// Mixin for generating new styles
+@mixin btn-styles($btn-color: #555) {
+  background-color: mix($btn-color, darken($btn-color, 12%));
+  @include gradient-vertical($start-color: $btn-color, $end-color: darken($btn-color, 12%));
+  @include reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners
+  background-repeat: repeat-x;
+  border-color: darken($btn-color, 14%);
+  @include transition(#{none});
+
+  &:hover,
+  &:focus {
+    @include transition(#{background-position 0.1s linear});
+    background-color: darken($btn-color, 12%);
+    background-position: 0 -15px;
+  }
+
+  &:active,
+  &.active {
+    background-color: darken($btn-color, 12%);
+    border-color: darken($btn-color, 14%);
+  }
+}
+
+// Generate the small columns
+@mixin make-sm-column($columns, $gutter: $grid-gutter-width, $row-columns: $grid-columns) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-sm-min) {
+    float: left;
+    width: percentage(($columns / $row-columns));
+  }
+}
+
+// Generate the medium columns
+@mixin make-md-column($columns, $gutter: $grid-gutter-width, $row-columns: $grid-columns) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-md-min) {
+    float: left;
+    width: percentage(($columns / $row-columns));
+  }
+}
+
+// GRADIENTS
+@mixin gradient-radial($inner-color: #555, $outer-color: #333, $type: circle) {
+  background-image: -webkit-radial-gradient($type, $inner-color, $outer-color);
+  background-image: radial-gradient($type, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}

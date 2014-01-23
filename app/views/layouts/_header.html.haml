@@ -1,0 +1,18 @@
+%header.header
+  .navbar.navbar-default.navbar-fixed-top
+    %ul.nav.navbar-nav
+      %li
+        = link_to '#', :class => 'toggle-menu' do
+          %i.fa.fa-bars
+          Menu
+      %li
+        = link_to 'http://blog.fitogram.de/' do
+          %i.fa.fa-rss
+          blog
+          
+    .navbar-header
+      = link_to '/', :class => 'navbar-brand', :title => 'fitogram' do
+        = image_tag("logotype.png")
+      
+          
+          

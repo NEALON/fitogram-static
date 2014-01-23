@@ -1,0 +1,166 @@
+// Variables
+// --------------------------------------------------
+ 
+// Colours 
+$white          : #ffffff;
+$black          : #000000;
+
+$gray-darker    : #323232;
+$gray-dark      : #4b4b4b;
+$gray           : #646464;
+$gray-light     : #969696;
+$blue           : #14a1de;
+$orange         : #ee9730;
+
+// Brand colors
+// -------------------------
+
+$brand-primary:         #26b2ee !default;
+$brand-success:         #5cb85c !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+$brand-info:            #5bc0de !default;
+
+
+// Scaffolding
+// -------------------------
+
+$body-bg        : $white;
+$text-color     : $gray-light;
+
+// Links
+// -------------------------
+
+$link-color         : $blue;
+$link-hover-color   : darken($link-color, 15%);
+
+
+// Typography
+// -------------------------
+
+$font-family-sans-serif   : "Source-Sans-Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif        : "Montserrat", Georgia, "Times New Roman", Times, serif;
+$font-family-monospace    : Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base         : $font-family-sans-serif;
+
+$font-size-base           : 16px;
+$font-size-large          : ceil($font-size-base * 1.25); // ~20px
+$font-size-small          : ceil($font-size-base * 0.75); // ~12px
+
+$font-size-h1             : floor($font-size-base * 3.5); // ~56px
+$font-size-h2             : floor($font-size-base * 2.81); // ~45px
+$font-size-h3             : ceil($font-size-base * 1.625); // ~26px
+$font-size-h4             : ceil($font-size-base * 1.25); // ~20px
+$font-size-h5             : ceil($font-size-base * 1.25); // ~20px
+$font-size-h6             : $font-size-base; // ~16px
+
+$line-height-base         : 1.5; // 24/16
+$line-height-computed     : floor($font-size-base * $line-height-base) !default; // ~20px
+
+$headings-font-family     : $font-family-serif;
+$headings-font-weight     : bold;
+$headings-line-height     : 1.1 !default;
+$headings-color           : $gray;
+
+
+// Buttons
+// -------------------------
+
+$btn-font-weight:                bold;
+$btn-default-color:              $gray-dark;
+$btn-default-bg:                 #f4f4f4;
+
+
+// Components
+// -------------------------
+// Based on 14px font-size and 1.428 line-height (~20px to start)
+
+$padding-base-vertical:          11px;
+$padding-base-horizontal:        24px;
+
+$padding-large-vertical:         15px;
+$padding-large-horizontal:       20px;
+
+$padding-small-vertical:         5px !default;
+$padding-small-horizontal:       10px !default;
+
+$padding-xs-vertical:            1px !default;
+$padding-xs-horizontal:          5px !default;
+
+$line-height-large:              1.25;
+$line-height-small:              1.5 !default;
+
+$border-radius-base:             30px;
+$border-radius-large:            40px;
+$border-radius-small:            3px !default;
+
+
+// Forms
+// -------------------------
+
+$input-bg:                       #fff !default;
+//$input-bg-disabled:              $gray-lighter !default;
+
+$input-color:                    $gray-dark;
+$input-border:                   #ccc !default;
+$input-border-radius:            $border-radius-base !default;
+$input-border-focus:             #66afe9 !default;
+
+$input-color-placeholder:        $gray-light;
+
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+$input-height-large:             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2);
+$input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
+
+$legend-color:                   $gray-dark !default;
+$legend-border-color:            #e5e5e5 !default;
+
+//$input-group-addon-bg:           $gray-lighter !default;
+//$input-group-addon-border-color: $input-border !default;
+
+
+// Navbar
+// -------------------------
+
+// Basics of a navbar
+$navbar-height          : 68px;
+$navbar-default-color   : $gray-darker;
+
+// Navbar links
+$navbar-default-link-color:                $gray-darker;
+$navbar-default-link-hover-color:          $blue;
+
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+$nav-link-padding:  7px 20px;
+
+
+// Grid system
+// --------------------------------------------------
+
+// Number of columns in the grid system
+$grid-columns:              12;
+// Padding, to be divided by two and applied to the left and right of all columns
+$grid-gutter-width:         25px;
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+$container-tablet:             ((720px + $grid-gutter-width));
+$container-sm:                 $container-tablet;
+
+// Medium screen / desktop
+$container-desktop:            ((940px + $grid-gutter-width));
+$container-md:                 $container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:      996px;
+$container-lg:                 $container-large-desktop;
+
+

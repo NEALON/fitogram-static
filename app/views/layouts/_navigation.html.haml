@@ -1,0 +1,58 @@
+%nav.menu
+  .menu-head
+    = link_to '#', :class => 'close pull-right', :title => 'Close' do
+      &times;
+    fitogram menu
+    
+  %hr
+  
+  %ul.soc-links.list-unstyled
+    %li.s-facebook
+      = link_to 'https://www.facebook.com/fitogram', :title => 'Connect with us on Facebook', :target => '_blank' do
+        %i.fa.fa-facebook
+    %li.s-twitter
+      = link_to '#', :title => 'Connect with us on Twitter', :target => '_blank' do
+        %i.fa.fa-twitter
+    %li.s-google
+      = link_to '#', :title => 'Connect with us on Google', :target => '_blank' do
+        %i.fa.fa-google-plus
+        
+  %hr
+  
+  %h6 Popular Searches
+  %ul.nav.nav-popular-searches
+    %li
+      = link_to '#' do
+        Yoga
+        %small nearby
+      = link_to '#' do
+        fitness studio
+        %small nearby
+      = link_to '#' do
+        Lowcost fitness studio
+        %small nearby
+      = link_to '#' do
+        Zumba
+        %small nearby
+      = link_to '#' do
+        Crossfit
+        %small nearby
+    
+  %hr
+    
+  %h6 Latest blog articles
+  %ul.nav.nav-latest-blog
+    %li= link_to 'How do I find the right fitness studio', '#'
+    %li= link_to 'Which activity is really good for me', '#'
+    %li= link_to 'Nutrition tipps before the summer', '#'
+    %li= link_to 'Magical Zumba', '#'
+    
+  %ul.nav.nav-main
+    %li.active= link_to 'Home', '#'
+    %li= link_to 'Marketplace', '#'
+    %li= link_to 'About us', '#'
+    %li= link_to 'FAQ', '#'
+    %li= link_to 'Provider section', '#'
+    %li= link_to 'Jobs', '#'
+    %li= link_to 'Contacts', '#'
+    %li= link_to 'Press & Media', '#'
