@@ -1,3 +1,346 @@
-@import "twitter/bootstrap";
+/*!
+ * Project: Fitogram
+ * Date: 01232014
+ * 
+ * Author: Eugene Tsurcan 
+ * Front End Developer 
+ * [http://www.linkedin.com/in/eugenetsurcan] 
+ *  
+ */
+
+
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "variables";
+@import "bootstrap";
+@import "font-awesome";
+@import "mixins";
+
 @import "jquery.ui.all";
 @import "fullcalendar";
+
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html, body { background: $gray-dark; }
+
+body { padding-top: #{$navbar-height - 2px}; }
+
+.root { background: $white; position: relative; }
+
+a { @include transition(#{background .15s, color .15s, border-color .15s}); }
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Font Face
+ */
+
+/* Montserrat Regular */
+@font-face {  
+  font-family: 'Montserrat';
+  src: asset-url('montserrat-regular.eot');
+  src: asset-url('montserrat-regular.eot?#iefix') format('embedded-opentype'),
+       asset-url('montserrat-regular.woff') format('woff'),
+       asset-url('montserrat-regular.ttf') format('truetype'),
+       asset-url('montserrat-regular.svg#montserratregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Montserrat Bold */
+@font-face {  
+  font-family: 'Montserrat';
+  src: asset-url('montserrat-bold.eot');
+  src: asset-url('montserrat-bold.eot?#iefix') format('embedded-opentype'),
+       asset-url('montserrat-bold.woff') format('woff'),
+       asset-url('montserrat-bold.ttf') format('truetype'),
+       asset-url('montserrat-bold.svg#montserratbold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Source-Sans-Pro Regular */
+@font-face {  
+  font-family: 'Source-Sans-Pro';
+  src: asset-url('sourcesanspro-regular.eot');
+  src: asset-url('sourcesanspro-regular.eot?#iefix') format('embedded-opentype'),
+       asset-url('sourcesanspro-regular.woff') format('woff'),
+       asset-url('sourcesanspro-regular.ttf') format('truetype'),
+       asset-url('sourcesanspro-regular.svg#source_sans_proregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Source-Sans-Pro Bold */
+@font-face {  
+  font-family: 'Source-Sans-Pro';
+  src: asset-url('sourcesanspro-bold.eot');
+  src: asset-url('sourcesanspro-bold.eot?#iefix') format('embedded-opentype'),
+       asset-url('sourcesanspro-bold.woff') format('woff'),
+       asset-url('sourcesanspro-bold.ttf') format('truetype'),
+       asset-url('sourcesanspro-bold.svg#source_sans_probold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
+
+
+/* ==========================================================================
+   Buttons Styles
+   ========================================================================== */
+  
+// Common styles
+.btn { border: 0 none; font-family: $font-family-serif;
+  // Remove the gradient for the pressed/active state
+  &:active,
+  &.active {
+    background-image: none;
+  }
+}
+
+.btn-shadow { @include box-shadow(#{0 2px 4px rgba($black, .45)}); }
+
+.btn-lg, .btn-group-lg > .btn { font-size: $font-size-large - 2; line-height: $font-size-large * $line-height-large; padding: {left: $padding-large-horizontal + 32px; right: $padding-large-horizontal + 32px;} 
+  &.btn-block { padding: {left: 0; right: 0;} }
+}
+
+// Apply the mixin to the buttons
+.btn-default { @include btn-styles($btn-default-bg); }
+.btn-primary { @include btn-styles($btn-primary-bg); }
+.btn-success { @include btn-styles($btn-success-bg); }
+.btn-info    { @include btn-styles($btn-info-bg); }
+.btn-warning { @include btn-styles($btn-warning-bg); }
+.btn-danger  { @include btn-styles($btn-danger-bg); }
+
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+  
+.form-control { border-color: lighten(#979797, 10%) lighten(#979797, 20%) #e4e4e4; @include box-shadow(#{inset 0 1px 2px 0 lighten(#979797, 10%)}); 
+  &:focus {
+    border-color: $input-border-focus;
+    @include box-shadow(#{inset 0 1px 2px 0 lighten(#979797, 10%), 0 0 8px $input-border-focus});
+  }
+}
+
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn { line-height: $line-height-large + 0.1; }
+
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+
+.header {
+  // Navbar Header 
+  .navbar { @include box-shadow(#{0 1px 15px rgba($black, .3)}); border: 0 none; padding: 0 #{$grid-gutter-width / 2}; background: #f2f2f2; font-size: 14px; @include gradient-vertical(#fafafa, #f2f2f2, 0%, 75%); @include transition(#{all .3s});
+    .navbar-brand { margin: 0; padding: #{($navbar-height - 34px) / 2} 0; }
+    
+    .navbar-nav { float: left; 
+      @media (min-width: $screen-sm-min) { float: none; }
+    }
+    
+    .navbar-header { float: right;
+      @media (min-width: $screen-sm-min) { float: none; position: absolute; top: 0; left: 50%; margin-left: -62px; }
+    }
+  }
+  
+  .nav > li { float: left;
+    > a { padding: {left: 25px; right: 25px;} 
+      &:hover .fa { color: $navbar-default-link-hover-color; }
+    }
+    
+    .fa { color: $gray-light; font-size: 24px; margin: -10px 15px -10px 0; position: relative; top: 4px; }
+  }
+}
+
+
+/* ==========================================================================
+   Menu Styles
+   ========================================================================== */
+
+.menu { @include box-sizing(#{border-box}); @include box-shadow(#{1px 0 15px rgba($black, .3)}); background: #fafafa; color: $gray-light; display: none; @include gradient-vertical(#fafafa, $white, 70%); padding: 0 20px 20px; position: relative; z-index: $zindex-navbar-fixed - 1;
+  // Navigation Head
+  .menu-head { font-family: $font-family-serif; margin: 13px 0; 
+    .close { color: $gray-light; @include inline-block; border: 2px solid $gray-light; border-radius: 40px; height: 24px; @include opacity(1); line-height: 21px; text-align: center; width: 24px; 
+      &:hover { color: $blue; border-color: $blue; }
+    }
+  }
+  
+  .nav { font-size: 14px; margin: {left: -20px; right: -20px; bottom: 20px;} 
+    a { color: $gray-light; }
+    
+    // Navigation Popular Searches
+    &.nav-popular-searches {
+      a { color: $blue; font-weight: bold; 
+        small { color: $gray-light; font: {size: 12px; weight: normal;} }
+      }
+      .active a, a:hover, a:focus { background: $blue; color: $white; 
+        small { color: $white; }
+      }
+    } 
+    
+    // Navigation Lates Blog
+    &.nav-latest-blog {
+      .active a, a:hover, a:focus { background: $orange; color: $white; font-weight: bold; }
+    } 
+  }
+  
+  // Navigation Main
+  .nav-main { font-family: $font-family-serif;
+    > li { border: 1px solid #e7e7e7; border-width: 1px 0; 
+      + li { border-top: 0 none; }
+    }
+    
+    a { color: $gray-dark; } 
+    
+    .active a, a:hover, a:focus { background: darken($white, 5%); color: $blue; }
+  }
+  
+  hr { border-color: #eaeaea; margin: 13px -20px; }
+  
+  @media (min-width: $screen-md-min) { display: block; @include opacity(.3); position: absolute; top: 0; left: 0; height: auto; min-height: 100%; @include translate3d(-300px, 0, 0); @include transition(#{all .3s}); width: 300px; }
+}
+
+.no-csstransforms3d {
+  @media (min-width: $screen-md-min) { 
+    .menu { left: -300px; }
+    .active-menu .menu { left: 0; }
+  }
+}
+
+// Show Menu
+.active-menu {
+  .header .toggle-menu { color: $blue; 
+    .fa { color: $blue; }
+  }
+   
+  @media (min-width: $screen-md-min) {
+    .menu { @include opacity(1); @include translate3d(0, 0, 0); }  
+    .header .navbar { @include box-shadow(#{305px 1px 15px rgba($black, .3)}); }
+  }
+}
+
+/* Social Links */
+.soc-links { @include clearfix; font-size: 17px; margin: 19px 0;
+  li { float: left; 
+    + li { margin-left: 10px; }
+    
+    a { @include inline-block; border-radius: $border-radius-base; background: $gray; @include box-shadow(#{0 1px 3px rgba($black, .3)}); color: $white; height: 35px; line-height: 39px; width: 47px; text-align: center; }
+  }
+
+  .s-facebook a { background: #3b5999; @include gradient-vertical(#466bb9, #3b5999); @include reset-filter();
+    &:hover, &:focus { background-position: 0 -15px; }
+  }
+  .s-twitter a { background: #01aced; @include gradient-vertical(#5bccf7, #01aced); @include reset-filter(); 
+    &:hover, &:focus { background-position: 0 -15px; }
+  }
+  .s-google a { background: #dd4b39; @include gradient-vertical(#f55f4d, #dd4b39); @include reset-filter(); 
+    &:hover, &:focus { background-position: 0 -15px; }
+  }
+}
+
+.no-cssgradients .soc-links {
+  li a {
+    &:hover, &:focus { @include opacity(.9); }
+  }
+}
+
+
+/* ==========================================================================
+   Main Styles
+   ========================================================================== */
+
+/**
+ * Being Active Unit
+ */
+.being-active-unit { background: image-url('being-active.jpg') center center $gray-dark; background-size: cover; @include box-shadow(#{inset 0 -1px 15px rgba($black, .3)}); color: $white; padding: 0; position: relative; text-align: center; @include clearfix; z-index: 1; 
+  @media (min-width: $screen-sm-min) { padding: 45px 0; }
+  
+  @media (min-width: $screen-md-min) { padding: 115px 0 155px;
+    form { margin: 0 55px; }
+  }
+  
+  hgroup { margin-bottom: 40px; text-shadow: 0 1px 4px rgba($black, .8); }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: inherit; }
+  
+  $gutter-search-width: 10px;
+  
+  .row-search { @include make-row($gutter-search-width); 
+    > .form-group:first-child { @include make-sm-column(10, $gutter-search-width, 18); 
+      + .form-group { @include make-sm-column(5, $gutter-search-width, 18); 
+        + .form-group { @include make-sm-column(3, $gutter-search-width, 18); }
+      }
+    }
+  }
+  
+  .inner { padding: 80px 0; @include clearfix; @include gradient-radial(rgba($black, .5), transparent, #{ellipse contain}); }
+  
+  .bg-radial { position: absolute; top: 0; left: 0; right: 0; height: 100%; @include gradient-radial(#{transparent 50%}, rgba($black, .5)); z-index: -1; }
+}
+
+.no-backgroundsize .being-active-unit { background-size: 100% auto;
+  @media (min-width: $screen-md-min) { background-size: 0 100%; }
+}
+
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
+.footer { background: $gray-dark; 
+  /* Sticky Footer */
+  @media (min-width: $screen-md-min) {
+    @include sticky-footer(80px, '.root', '.root-footer', '.footer');
+  }
+}
+
+.root-footer { @include clearfix; }
+
+
+/* ==========================================================================
+   Small devices (tablets, 768px and up)
+   ========================================================================== */
+  
+@media (min-width: $screen-sm-min) {
+  //
+}
+
+
+/* ==========================================================================
+   Medium devices (desktops, 992px and up)
+   ========================================================================== */
+  
+@media (min-width: $screen-md-min) {
+  /* Sticky Footer */
+  @include sticky-footer(62px, ".root", ".root-footer", ".footer");
+}
+
+
+/* ==========================================================================
+   Large devices (large desktops, 1200px and up)
+   ========================================================================== */
+  
+@media (min-width: $screen-lg-min) {
+  //
+}
+
+
+/* ==========================================================================
+   Special Classes
+   ========================================================================== */
+  
+.no-marg-top { margin-top: 0!important; }
+.no-marg-bottom { margin-bottom: 0!important; }
+
+.lower { text-transform: lowercase!important; }
+.upper { text-transform: uppercase!important; }
+

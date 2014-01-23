@@ -5,9 +5,15 @@ gem 'rails', '4.0.0'
 
 gem "nested_form"
 gem 'jquery-ui-rails'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'haml'
 gem 'haml-rails', group: :development
+
+# The iconic font designed for Bootstrap
+gem 'font-awesome-sass'
+
+# This Modernizr.js was built using the at http://www.modernizr.com/download/ with all options enabled
+gem 'modernizr-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
