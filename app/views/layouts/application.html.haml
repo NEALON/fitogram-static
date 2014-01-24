@@ -12,14 +12,11 @@
     - if content_for?(:html_head)
       = yield(:html_head)
     = csrf_meta_tags
-  %body  
-    .root
+  %body
+    .root  
       = render 'layouts/header'
       = render 'layouts/navigation'
       
       .wrapper-content
         = yield
-        
-      .root-footer
-      
-    = render 'layouts/footer'
+        = render 'layouts/footer'

@@ -25,13 +25,29 @@
    Base
    ========================================================================== */
 
-html, body { background: $gray-dark; }
+html, body { background: #fafafa; @include gradient-vertical(#fafafa, $white, 70%); height: 100%; 
+  @media (min-width: $screen-sm-min) { background: $body-bg; }
+}
 
-body { padding-top: #{$navbar-height - 2px}; }
+body { padding-top: #{$navbar-height - 2px}; 
+  @media (min-width: $screen-sm-min) { padding-top: #{$navbar-height-lg - 2px}; }
+}
 
-.root { background: $white; position: relative; }
+.root { overflow: hidden; position: relative; width: 100%; @include clearfix;
+  @media (min-width: $screen-md-min) { height: 100%; overflow: visible; }
+}
 
 a { @include transition(#{background .15s, color .15s, border-color .15s}); }
+
+// Flex Video lets browsers automatically scale video objects in your webpages
+.flex-video { position: relative; padding-bottom: 67.5%; height: 0; overflow: hidden; 
+  &.widescreen { padding-bottom: 57.25%; }
+  
+  iframe, object, embed, video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+}
+
+// Thumbnail
+.thumbnail { border: 0 none; @include box-shadow(#{0 4px 6px rgba($black, .35)}); }
 
 
 /* ==========================================================================
@@ -92,6 +108,14 @@ a { @include transition(#{background .15s, color .15s, border-color .15s}); }
 
 h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
 
+h2, .h2 { margin-bottom: 30px; }
+
+@media (min-width: $screen-md-min) {
+  h1, .h1 { font-size: $font-size-h1-lg; }
+  h2, .h2 { font-size: $font-size-h2-lg; margin-bottom: 40px; }
+  h3, .h3 { font-size: $font-size-h3-lg; }
+}
+
 
 /* ==========================================================================
    Buttons Styles
@@ -106,10 +130,16 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
   }
 }
 
+.btn-circle { background: $white; border: 0 none; border-radius: 50px; color: $blue; font-size: 37px; height: 100px; line-height: 100px; padding: 0; text-align: center; @include transition(#{all .3s}); width: 100px; 
+  &:hover, &:focus { color: $blue; @include box-shadow(0 0 20px rgba($black, .6)); outline: none; @include scale(1.1); }
+}
+
 .btn-shadow { @include box-shadow(#{0 2px 4px rgba($black, .45)}); }
 
-.btn-lg, .btn-group-lg > .btn { font-size: $font-size-large - 2; line-height: $font-size-large * $line-height-large; padding: {left: $padding-large-horizontal + 32px; right: $padding-large-horizontal + 32px;} 
+.btn-lg, .btn-group-lg > .btn { font-size: $font-size-large - 2; line-height: $font-size-large * $line-height-large; padding: {left: $padding-large-horizontal; right: $padding-large-horizontal;} 
   &.btn-block { padding: {left: 0; right: 0;} }
+  
+  @media (min-width: $screen-md-min) { padding: {left: 52px; right: 52px;} }
 }
 
 // Apply the mixin to the buttons
@@ -141,24 +171,34 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
 
 .header {
   // Navbar Header 
-  .navbar { @include box-shadow(#{0 1px 15px rgba($black, .3)}); border: 0 none; padding: 0 #{$grid-gutter-width / 2}; background: #f2f2f2; font-size: 14px; @include gradient-vertical(#fafafa, #f2f2f2, 0%, 75%); @include transition(#{all .3s});
-    .navbar-brand { margin: 0; padding: #{($navbar-height - 34px) / 2} 0; }
+  .navbar { background: #f2f2f2; @include gradient-vertical(#fafafa, #f2f2f2, 0%, 75%); @include box-shadow(#{0 1px 15px rgba($black, .3)}); border: 0 none; padding: 0 #{$grid-gutter-width / 2}; font-size: 14px; @include transition(#{all .3s});
+    .navbar-brand { margin: 0 (-$navbar-padding-horizontal); padding: #{($navbar-height - 34px) / 2} 10px; 
+      @media (min-width: $screen-sm-min) { padding: #{($navbar-height-lg - 34px) / 2} 25px; margin: 0; } 
+    }
     
-    .navbar-nav { float: left; 
-      @media (min-width: $screen-sm-min) { float: none; }
+    .navbar-nav { float: left; margin: {top: 0; bottom: 0;}
+      @media (min-width: $screen-md-min) { float: none; }
     }
     
     .navbar-header { float: right;
-      @media (min-width: $screen-sm-min) { float: none; position: absolute; top: 0; left: 50%; margin-left: -62px; }
+      @media (min-width: $screen-md-min) { float: none; position: absolute; top: 0; left: 50%; margin-left: -62px; }
     }
+    
+    @media (min-width: $screen-sm-min) { min-height: $navbar-height-lg; } 
   }
   
   .nav > li { float: left;
-    > a { padding: {left: 25px; right: 25px;} 
+    > a { padding: {left: 10px; right: 10px;} 
       &:hover .fa { color: $navbar-default-link-hover-color; }
     }
     
-    .fa { color: $gray-light; font-size: 24px; margin: -10px 15px -10px 0; position: relative; top: 4px; }
+    .fa { color: $gray-light; font-size: 24px; margin: -10px 3px -10px 0; position: relative; top: 4px; }
+    
+    @media (min-width: $screen-sm-min) {
+      > a { padding: $navbar-padding-vertical-lg 25px $navbar-padding-vertical-lg; }
+      
+      .fa { margin-right: 15px; }
+    }
   }
 }
 
@@ -167,7 +207,7 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
    Menu Styles
    ========================================================================== */
 
-.menu { @include box-sizing(#{border-box}); @include box-shadow(#{1px 0 15px rgba($black, .3)}); background: #fafafa; color: $gray-light; display: none; @include gradient-vertical(#fafafa, $white, 70%); padding: 0 20px 20px; position: relative; z-index: $zindex-navbar-fixed - 1;
+.menu { @include box-sizing(#{border-box}); color: $gray-light; float: left; margin-left: -100%; max-width: 85%; padding: 0 20px 20px; position: relative; @include transition(#{all .3s}); width: 300px;
   // Navigation Head
   .menu-head { font-family: $font-family-serif; margin: 13px 0; 
     .close { color: $gray-light; @include inline-block; border: 2px solid $gray-light; border-radius: 40px; height: 24px; @include opacity(1); line-height: 21px; text-align: center; width: 24px; 
@@ -207,25 +247,41 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
   
   hr { border-color: #eaeaea; margin: 13px -20px; }
   
-  @media (min-width: $screen-md-min) { display: block; @include opacity(.3); position: absolute; top: 0; left: 0; height: auto; min-height: 100%; @include translate3d(-300px, 0, 0); @include transition(#{all .3s}); width: 300px; }
+  @media (min-width: $screen-md-min) { float: none; height: auto; left: 0; margin-left: 0; min-height: 100%; max-width: none; @include opacity(.3); position: absolute; top: 0; @include translate3d(-300px, 0, 0); z-index: $zindex-navbar-fixed - 1; }
+}
+
+@media (min-width: $screen-md-min) {
+  .menu-bg { @include box-shadow(#{1px 0 15px rgba($black, .3)}); background: #fafafa; @include gradient-vertical(#fafafa, $white, 70%); height: 100%; left: 0; @include opacity(.3); position: fixed; top: 0; @include translate3d(-300px, 0, 0); @include transition(#{all .3s}); width: 300px; z-index: $zindex-navbar-fixed - 2; }
 }
 
 .no-csstransforms3d {
   @media (min-width: $screen-md-min) { 
-    .menu { left: -300px; }
-    .active-menu .menu { left: 0; }
+    .menu, .menu-bg { left: -300px; }
+    .active-menu .menu, .active-menu .menu-bg { left: 0; }
   }
 }
 
 // Show Menu
 .active-menu {
-  .header .toggle-menu { color: $blue; 
-    .fa { color: $blue; }
+  .header {
+    .toggle-menu { color: $blue; 
+      .fa { color: $blue; }
+    }
+    
+    .navbar { @include box-shadow(#{300px 1px 15px rgba($black, .3)}); }
+  }
+  
+  // Off-Canvas menu
+  .menu { margin-left: 0; }
+  .wrapper-content { margin-right: -100%; 
+    &:after { display: block; }
   }
    
   @media (min-width: $screen-md-min) {
-    .menu { @include opacity(1); @include translate3d(0, 0, 0); }  
-    .header .navbar { @include box-shadow(#{305px 1px 15px rgba($black, .3)}); }
+    .menu-bg, .menu { @include opacity(1); @include translate3d(0, 0, 0); }
+    .wrapper-content { margin-right: 0; 
+      &:after { display: none; }
+    }
   }
 }
 
@@ -258,18 +314,22 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
 /* ==========================================================================
    Main Styles
    ========================================================================== */
+ 
+.wrapper-content { background: $body-bg; float: left; margin-left: 0; position: relative; @include transition(#{all .3s}); width: 100%; z-index: 3;
+  @media (min-width: $screen-md-min) { float: none; height: 100%; width: auto; }
+  
+  &:after { @include box-shadow(#{inset 1px 2px 15px rgba($black, .3)}); content: ""; display: none; height: 100%; left: 0; position: absolute; right: 0; top: 0; z-index: $zindex-navbar-fixed - 1; }
+}
 
 /**
  * Being Active Unit
  */
-.being-active-unit { background: image-url('being-active.jpg') center center $gray-dark; background-size: cover; @include box-shadow(#{inset 0 -1px 15px rgba($black, .3)}); color: $white; padding: 0; position: relative; text-align: center; @include clearfix; z-index: 1; 
-  @media (min-width: $screen-sm-min) { padding: 45px 0; }
+.being-active-unit { background: image-url('being-active-2.jpg') center center $gray-dark; background: {attachment: fixed; size: cover;} @include box-shadow(#{inset 0 -1px 15px rgba($black, .3)}); color: $white; height: 100%; overflow: hidden; padding: {bottom: 100px; top: 40px;} position: relative; text-align: center; @include clearfix; z-index: 1; 
+  > .container { height: 100%; position: relative; }
   
-  @media (min-width: $screen-md-min) { padding: 115px 0 155px;
-    form { margin: 0 55px; }
+  hgroup { margin-bottom: 40px; text-shadow: 0 1px 4px rgba($black, .8); 
+    h1 { margin-bottom: 7px; }
   }
-  
-  hgroup { margin-bottom: 40px; text-shadow: 0 1px 4px rgba($black, .8); }
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: inherit; }
   
   $gutter-search-width: 10px;
@@ -282,13 +342,124 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
     }
   }
   
-  .inner { padding: 80px 0; @include clearfix; @include gradient-radial(rgba($black, .5), transparent, #{ellipse contain}); }
+  .inner { @include clearfix; @include gradient-radial(rgba($black, .5), transparent, #{ellipse contain}); 
+    @media (min-width: $screen-md-min) { min-height: 200px; position: absolute; top: 50%; left: 0; right: 0; margin-top: -100px; }
+  }
   
   .bg-radial { position: absolute; top: 0; left: 0; right: 0; height: 100%; @include gradient-radial(#{transparent 50%}, rgba($black, .5)); z-index: -1; }
+
+  &:after, &:before { background: $white; content: ''; display: block; height: 200px; left: -10%; position: absolute; top: 100%; width: 120%; z-index: -1; }
+  &:before { @include rotate(1.6deg); margin-top: -30px; @include opacity(.5); }
+  &:after { @include rotate(0.7deg); margin-top: -12px; @include opacity(.3); }
+  
+  .btn-circle { bottom: -33px; left: 50%; margin-left: -50px; position: absolute; }
+  
+  @media (min-width: $screen-md-min) { max-height: 900px; min-height: 350px;
+    &:before { margin-top: -1.6%; }
+    &:after { margin-top: -0.7%; }
+    
+    form { margin: 0 55px; }
+  }
+}
+
+.no-csstransforms .being-active-unit {
+  &:after, &:before { display: none; }
 }
 
 .no-backgroundsize .being-active-unit { background-size: 100% auto;
   @media (min-width: $screen-md-min) { background-size: 0 100%; }
+}
+
+.scroll-end { margin-bottom: 15px; position: relative; top: -#{$navbar-height}; 
+  @media (min-width: $screen-sm-min) { margin-bottom: 50px; top: -#{$navbar-height-lg}; }
+}
+
+/**
+ * Find Place Unit
+ */
+.find-place-unit {
+  // Wrapper Google map
+  .wrapper-map { margin-bottom: -180px; position: relative; z-index: 3;
+    .btn { margin-top: 20px; }
+    
+    @media (min-width: $screen-lg-min) { margin-bottom: -130px;
+      .btn { background: none $brand-warning; border-radius: #{$border-radius-large 0 0 $border-radius-large}; @include box-shadow(#{-2px 2px 4px rgba($black, .45)}); bottom: 20px; padding-bottom: #{$padding-large-horizontal / 2 - 1px}; position: absolute; right: -7px; z-index: 5; 
+        &:after { border: {top: 27px solid transparent; left: 40px solid $brand-warning; bottom: 27px solid transparent;} content: ''; display: block; height: 0; left: 100%; position: absolute; top: 0; width: 0; }
+        &:hover { background: darken($brand-warning, 5%); 
+          &:after { border-left-color: darken($brand-warning, 5%); }
+        }
+      }
+    }
+  }
+  
+  // Bottom Info
+  .bottom-info { background: image-url('find-map.jpg') center center $blue; background: {attachment: fixed; size: cover;} color: $white; overflow: hidden; padding: {top: 225px; bottom: 150px;} position: relative; z-index: 2;
+    a { color: $white; text-decoration: none; }
+    
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: inherit; }
+    
+    &:before, &:after { bottom: 100%; content: ''; display: block; height: 200px; left: -10%; position: absolute; width: 120%; z-index: -1; }
+    &:after { background: $white; @include rotate(-4deg); margin-bottom: -4%; }
+    &:before { background: lighten($blue, 25%); @include rotate(-1deg); margin-bottom: -4%; }
+    
+    @media (min-width: $screen-md-min) {
+      &:before { @include rotate(-2.5deg); }
+    }
+    
+    @media (min-width: $screen-lg-min) { padding-top: 175px; }
+    
+    .bg-bottom {
+      &:after, &:before { content: ''; display: block; height: 200px; left: -10%; position: absolute; top: 100%; width: 120%; z-index: -1; }
+      &:after { background: $orange-light; @include rotate(3deg); margin-top: -20px; }
+      &:before { background: lighten($blue, 25%); @include rotate(5deg); margin-top: -25px; }
+      
+      @media (min-width: $screen-md-min) {
+        &:after { @include rotate(1.6deg); margin-top: -1.6%; }
+        &:before { @include rotate(3deg); margin-top: -1.6%; }
+      }
+    }
+  }
+}
+
+/**
+ * List Places
+ */
+.list-places { margin-bottom: 0; text-align: center;
+  > li { margin-bottom: 20px; }
+  
+  a { @include inline-block; position: relative; z-index: 1; 
+    &:hover {
+      .overlay:after { @include box-shadow(#{inset 0 0 60px 40px rgba($black, .3)}); }
+    }
+  }
+  
+  .thumbnail { margin-bottom: 0; }
+  
+  .overlay { @include box-sizing(#{border-box}); display: block; height: 100%; left: 0; padding: 10px 20px; position: absolute; right: 0; top: 0; z-index: 2; 
+    > .h3 { display: table-cell; height: 128px; max-width: 100%; vertical-align: middle; width: 275px;
+      + span { display: block; text-decoration: underline; }
+    }
+    
+    &:after { background: rgba($black, .3); border-radius: $thumbnail-border-radius; content: ''; display: block; height: 100%; left: 0; position: absolute; right: 0; top: 0; @include transition(#{all .3s}); z-index: -1; }
+  }
+}
+
+/**
+ * Blog Unit
+ */
+.blog-unit { background: image-url('blog-bg.jpg') center top $orange-light; background-size: cover; color: $white;
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: inherit; }
+ 
+  a { color: $white; text-decoration: underline;
+    &:hover, &:focus { color: $blue; text-decoration: none; }
+  }
+}
+
+/**
+ * List Posts
+ */
+.list-posts { margin-bottom: 0; text-align: center; 
+  > li { margin-bottom: 20px; }
 }
 
 
@@ -296,42 +467,7 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
    Footer Styles
    ========================================================================== */
 
-.footer { background: $gray-dark; 
-  /* Sticky Footer */
-  @media (min-width: $screen-md-min) {
-    @include sticky-footer(80px, '.root', '.root-footer', '.footer');
-  }
-}
-
-.root-footer { @include clearfix; }
-
-
-/* ==========================================================================
-   Small devices (tablets, 768px and up)
-   ========================================================================== */
-  
-@media (min-width: $screen-sm-min) {
-  //
-}
-
-
-/* ==========================================================================
-   Medium devices (desktops, 992px and up)
-   ========================================================================== */
-  
-@media (min-width: $screen-md-min) {
-  /* Sticky Footer */
-  @include sticky-footer(62px, ".root", ".root-footer", ".footer");
-}
-
-
-/* ==========================================================================
-   Large devices (large desktops, 1200px and up)
-   ========================================================================== */
-  
-@media (min-width: $screen-lg-min) {
-  //
-}
+.footer { background: $gray-dark; }
 
 
 /* ==========================================================================
@@ -343,4 +479,10 @@ h4, h5, h6 { margin: {top: 17px; bottom: 14px;} }
 
 .lower { text-transform: lowercase!important; }
 .upper { text-transform: uppercase!important; }
+
+.hidden-xsmall { display: none!important; 
+  @media (min-width: $screen-xs-min) { display: inherit!important; }
+}
+
+.nowrap { white-space: nowrap!important; }
 

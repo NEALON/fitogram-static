@@ -24,3 +24,4 @@
 #= require jquery.ui.autocomplete
 #
 #= require navigation
+#= require scrolling

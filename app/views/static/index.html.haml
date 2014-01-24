@@ -1,4 +1,5 @@
 %section.being-active-unit
+  .bg-radial
   .container
     .inner 
       %hgroup.lower
@@ -12,23 +13,58 @@
             %input.form-control.input-lg{:type => 'text', :id => 'in-city', :placeholder => 'Where?'}
           .form-group
             %button.btn.btn-block.btn-primary.btn-lg.lower Find
-  .bg-radial
+  = link_to '#scroll-to-find-place', :title => 'Learn More', :class => 'btn btn-circle scroll-to' do
+    %i.fa.fa-chevron-down 
 
-#content.container
-  The main page content.
+.scroll-end#scroll-to-find-place
 
-.container
-  %h3 Index page.
+%section.find-place-unit
+  .container
+    %h2.text-center find the right place to be active
+    .wrapper-map
+      .flex-video.widescreen.thumbnail.no-marg-bottom
+        %iframe{frameborder: "0", height: "410", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?q=%D0%B1%D0%B5%D1%80%D0%BB%D0%B8%D0%BD&ie=UTF8&hq=&hnear=%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD,+%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F&gl=md&t=m&ll=52.520399,13.404694&spn=0.342604,1.303253&z=10&iwloc=A&output=embed&hl=en", width: "950"}
+      .text-center
+        = link_to '#', :class => 'btn btn-warning btn-lg btn-shadow' do
+          Go to our marketplace
+          %span
+            %span.hidden-xsmall for Berlin
+            
+  .bottom-info
+    .bg-bottom
+    .container
+      %ul.list-unstyled.row.list-places
+        %li.col-md-4.col-sm-6
+          = link_to '#', :title => 'Have you tried Pilates yet?' do
+            = image_tag("places/img1-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Have you tried Pilates yet?')
+            %span.overlay
+              %span.h3 Have you tried Pilates yet?
+              %span Pilates in Berlin
+        %li.col-md-4.col-sm-6
+          = link_to '#', :title => 'Looking to lose the christmas pounds?' do
+            = image_tag("places/img2-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Looking to lose the christmas pounds?')
+            %span.overlay
+              %span.h3 Looking to lose the christmas pounds?
+              %span Fitnessstudios in Berlin
+        %li.col-md-4.col-sm-6.col-sm-offset-3.col-md-offset-0
+          = link_to '#', :title => 'Want some heat?' do
+            = image_tag("places/img3-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Want some heat?')
+            %span.overlay
+              %span.h3 Want some heat?
+              %span Sauna in Berlin
   
-  .row
-    .col-sm-4
-      %p
-        %a.btn.btn-default.btn-shadow.lower{:href => '#'} see all in our blog
-    .col-sm-4
-      %p
-        %a.btn.btn-primary{:href => '#'} Test Button
-    .col-sm-4
-      %p
-        %a.btn.btn-success{:href => '#'} Test Button
-  
-     
+%section.blog-unit
+  .container
+    %h2.text-center
+      Our fitogram expert team is here to help you doing it right...check out 
+      = link_to 'our blog', 'http://blog.fitogram.de/', :class => 'nowrap'
+    
+    %ul.list-unstyled.row.list-posts
+      %li.col-md-4.col-sm-6
+        123123
+      %li.col-md-4.col-sm-6
+        123123
+      %li.col-md-4.col-sm-6.col-sm-offset-3.col-md-offset-0
+        123123
+        
+%h1 Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
