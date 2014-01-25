@@ -1,6 +1,5 @@
 %section.hero-unit
   .bg-radial
-  .bg-bottom
   .container
     .inner 
       %hgroup.lower
@@ -43,8 +42,9 @@
           .form-group
             %button.btn.btn-block.btn-primary.btn-lg.lower Find
   
-  = link_to '#scroll-to-find-place', :title => 'Learn More', :class => 'btn btn-circle scroll-to' do
-    %i.fa.fa-chevron-down 
+  .bg-bottom
+    = link_to '#scroll-to-find-place', :title => 'Learn More', :class => 'btn btn-circle scroll-to' do
+      %i.fa.fa-chevron-down 
 
 .scroll-end#scroll-to-find-place
 

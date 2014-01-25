@@ -168,7 +168,7 @@ h2 + h3 { margin-top: 16px; }
 }
 
 .btn-circle { background: $body-bg; border: 0 none; border-radius: 50px; color: $blue; font-size: 37px; height: 100px; line-height: 100px; padding: 0; text-align: center; @include transition(#{all .3s}); width: 100px; 
-  &:hover, &:focus { color: $blue; @include box-shadow(0 0 20px rgba($black, .6)); outline: none; @include scale(1.1); }
+  &:hover, &:focus { color: $blue; @include box-shadow(0 0 20px rgba($black, .6)); outline: none; }
 }
 
 .btn-shadow { @include box-shadow(#{0 2px 4px rgba($black, .45)}); }
@@ -624,7 +624,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .footer { color: $gray-lighter; overflow: hidden; margin-top: -100px; padding-top: 100px; position: relative; text-align: center; z-index: 5;
   .btn-circle { background: $white; border-radius: 50px; @include box-shadow(#{0 -3px 6px rgba($black, .6)}); color: $gray-dark; font-size: 37px; height: 80px; line-height: 80px; left: 50%; margin: {top: -50px; left: -40px;} position: absolute; top: 0; @include transition(#{all .3s}); width: 80px; z-index: 5; 
-    &:hover, &:focus { @include box-shadow(#{none}); color: $blue; @include scale(1); }
+    &:hover, &:focus { @include box-shadow(#{none}); color: $blue; }
   }
   
   a { color: $gray-lighter; 
