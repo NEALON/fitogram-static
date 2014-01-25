@@ -1,70 +1,181 @@
-%section.being-active-unit
+%section.hero-unit
   .bg-radial
+  .bg-bottom
   .container
     .inner 
       %hgroup.lower
-        %h1.no-marg-top Being active is being alive.
-        %h3.no-marg-top We’ll help you find the best activity to be in shape.
+        %h1.no-marg-top.no-marg-bottom Being active is being alive.
+        %h3 We’ll help you find the best activity to be in shape.
+      
       %form.form-inline
         .row-search
           .form-group
-            %input.form-control.input-lg{:type => 'text', :id => 'in-type', :placeholder => 'What are you looking for?'}
+            .dropdown
+              %input.form-control.input-lg{:type => 'text', :id => 'in-type', :placeholder => 'What are you looking for?'}
+              / Status 2 (need ajax)
+              %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
+                %li.dropdown-header All Offers
+                %li.divider
+                %li.dropdown-header Popular Searches...
+                %li= link_to 'Yoga', '#'
+                %li= link_to 'Zumba', '#'
+                %li= link_to 'Pilates', '#'
+                %li= link_to 'fitnessstudio', '#'
+                %li= link_to 'sauna', '#'
+              / Status 3 (need ajax)
+              %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
+                %li.dropdown-header Popular Searches...
+                %li= link_to 'fitnessstudio', '#'
+                %li= link_to 'fitness Pump', '#'
+                %li= link_to 'fit body', '#'
+                %li= link_to 'fitness first', '#'
+                %li= link_to 'mcfit', '#'
+                %li.divider
+                %li.dropdown-header Providers
+                %li= link_to 'fitness first aachener str.', '#'
+                %li= link_to 'fitness first mozart str.', '#'
+                %li= link_to 'fitness first on rhein', '#'
+                %li= link_to 'fitness lady first mittelstr.', '#'
+                %li.more= link_to 'and 23 more...', '#'
+              
           .form-group
             %input.form-control.input-lg{:type => 'text', :id => 'in-city', :placeholder => 'Where?'}
           .form-group
             %button.btn.btn-block.btn-primary.btn-lg.lower Find
+  
   = link_to '#scroll-to-find-place', :title => 'Learn More', :class => 'btn btn-circle scroll-to' do
     %i.fa.fa-chevron-down 
 
 .scroll-end#scroll-to-find-place
 
-%section.find-place-unit
-  .container
-    %h2.text-center find the right place to be active
-    .wrapper-map
-      .flex-video.widescreen.thumbnail.no-marg-bottom
-        %iframe{frameborder: "0", height: "410", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?q=%D0%B1%D0%B5%D1%80%D0%BB%D0%B8%D0%BD&ie=UTF8&hq=&hnear=%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD,+%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F&gl=md&t=m&ll=52.520399,13.404694&spn=0.342604,1.303253&z=10&iwloc=A&output=embed&hl=en", width: "950"}
-      .text-center
-        = link_to '#', :class => 'btn btn-warning btn-lg btn-shadow' do
-          Go to our marketplace
-          %span
-            %span.hidden-xsmall for Berlin
-            
-  .bottom-info
-    .bg-bottom
+/ END .hero-unit
+
+.content-page
+  %section.find-place-unit
     .container
-      %ul.list-unstyled.row.list-places
-        %li.col-md-4.col-sm-6
-          = link_to '#', :title => 'Have you tried Pilates yet?' do
-            = image_tag("places/img1-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Have you tried Pilates yet?')
-            %span.overlay
-              %span.h3 Have you tried Pilates yet?
-              %span Pilates in Berlin
-        %li.col-md-4.col-sm-6
-          = link_to '#', :title => 'Looking to lose the christmas pounds?' do
-            = image_tag("places/img2-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Looking to lose the christmas pounds?')
-            %span.overlay
-              %span.h3 Looking to lose the christmas pounds?
-              %span Fitnessstudios in Berlin
-        %li.col-md-4.col-sm-6.col-sm-offset-3.col-md-offset-0
-          = link_to '#', :title => 'Want some heat?' do
-            = image_tag("places/img3-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Want some heat?')
-            %span.overlay
-              %span.h3 Want some heat?
-              %span Sauna in Berlin
-  
-%section.blog-unit
-  .container
-    %h2.text-center
-      Our fitogram expert team is here to help you doing it right...check out 
-      = link_to 'our blog', 'http://blog.fitogram.de/', :class => 'nowrap'
-    
-    %ul.list-unstyled.row.list-posts
-      %li.col-md-4.col-sm-6
-        123123
-      %li.col-md-4.col-sm-6
-        123123
-      %li.col-md-4.col-sm-6.col-sm-offset-3.col-md-offset-0
-        123123
+      %h2.text-center find the right place to be active
+      .wrapper-map
+        .flex-video.widescreen.thumbnail.no-marg-bottom
+          %iframe{frameborder: "0", height: "410", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?q=%D0%B1%D0%B5%D1%80%D0%BB%D0%B8%D0%BD&ie=UTF8&hq=&hnear=%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD,+%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F&gl=md&t=m&ll=52.520399,13.404694&spn=0.342604,1.303253&z=10&iwloc=A&output=embed&hl=en", width: "950"}
+        .text-center
+          = link_to '#', :class => 'btn btn-warning btn-lg btn-shadow' do
+            Go to our marketplace
+            %span
+              %span.hidden-xsmall for Berlin
+                
+    .bottom-info
+      .bg-bottom
+      .container
+        %ul.list-unstyled.row.list-places
+          %li.col-md-4.col-sm-6
+            = link_to '#', :title => 'Have you tried Pilates yet?' do
+              = image_tag("places/img1-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Have you tried Pilates yet?')
+              %span.overlay
+                %span.h3 Have you tried Pilates yet?
+                %span Pilates in Berlin
+          %li.col-md-4.col-sm-6
+            = link_to '#', :title => 'Looking to lose the christmas pounds?' do
+              = image_tag("places/img2-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Looking to lose the christmas pounds?')
+              %span.overlay
+                %span.h3 Looking to lose the christmas pounds?
+                %span Fitnessstudios in Berlin
+          %li.col-md-4.col-sm-6.col-sm-offset-3.col-md-offset-0
+            = link_to '#', :title => 'Want some heat?' do
+              = image_tag("places/img3-315x195.jpg", :class => 'img-responsive thumbnail', :title => 'Want some heat?')
+              %span.overlay
+                %span.h3 Want some heat?
+                %span Sauna in Berlin
+  / END .find-place-unit
+      
+  %section.blog-unit
+    .inner
+      .container
+        %h2.text-center
+          Our fitogram expert team is here to help you doing it right...check out 
+          = link_to 'our blog', 'http://blog.fitogram.de/', :class => 'nowrap'
         
-%h1 Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text
+        %ul.list-unstyled.row.list-posts
+          %li.col-md-4.col-sm-6        
+            %figure.item-post.thumbnail
+              .icon-blog
+                %i.glyphicon.glyphicon-list-alt
+              = link_to '#', :title => 'Work out' do
+                = image_tag("posts/img1-315x185.jpg", :class => 'img-responsive', :title => 'Work out')
+              %figcaption
+                %h4= link_to 'Work out', '#'
+                %p Here we put the first few lines of the blog article. Here we put the first few lines of the blog article. Here we put the first few lines of the blog article.
+          %li.col-md-4.col-sm-6
+            %figure.item-post.thumbnail
+              .icon-blog
+                %i.glyphicon.glyphicon-list-alt
+              = link_to '#', :title => 'How to choose your fitness studio' do
+                = image_tag("posts/img2-315x185.jpg", :class => 'img-responsive', :title => 'How to choose your fitness studio')
+              %figcaption
+                %h4= link_to 'How to choose your fitness studio', '#'
+                %p Here we put the first few lines of the blog article. Here we put the first few lines of the blog article. Here we put the first few lines of the blog article.
+          %li.col-md-4.col-sm-6.col-sm-offset-3.col-md-offset-0
+            %figure.item-post.thumbnail
+              .icon-blog
+                %i.glyphicon.glyphicon-list-alt
+              = link_to '#', :title => 'The myth of the perfect six pack' do
+                = image_tag("posts/img3-315x185.jpg", :class => 'img-responsive', :title => 'The myth of the perfect six pack')
+              %figcaption
+                %h4= link_to 'The myth of the perfect six pack', '#'
+                %p Here we put the first few lines of the blog article. Here we put the first few lines of the blog article. Here we put the first few lines of the blog article.
+        
+        %p.row.text-center
+          .col-md-5.col-sm-6.col-centered
+            = link_to 'See all in our blog', '#', :class => 'btn btn-shadow btn-default lower btn-block'
+  / END .blog-unit
+  
+  .container
+    %h5 fitogram is the best way to access health and fitness activities
+    %p Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+    %p Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions. Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.        
+    
+    %hr
+    
+    .text-center
+      %h4 
+        Do you have any questions? 
+        .clearfix.marg-bottom.visible-xs
+        = link_to 'Ask', '#', :class => 'btn btn-primary'
+        %hr.marg-bottom.visible-xs.visible-sm
+        or call us, we will help you
+        .clearfix.marg-bottom.visible-xs
+        %span.text-primary.nowrap{:itemprop => "telephone"} 
+          = link_to '0221 22201408', 'tel:022122201408'
+          
+  %section.keep-in-touch
+    .container
+      %hgroup
+        %h2.text-primary.no-marg-bottom Keep in touch
+        %h3 We have some very exciting news and release for the upcoming months
+      .row
+        .col-sm-11.col-centered
+          %form
+            .row
+              .form-group.col-sm-9
+                %input.form-control.input-lg{:type => 'email', :placeholder => 'enter email address to receive newsletter'}
+              .form-group.col-sm-3
+                %button.btn.btn-lg.btn-primary.btn-block.lower Subscribe
+              
+      %hr
+      
+      %ul.soc-links.list-unstyled
+        %li
+          = link_to 'https://www.facebook.com/fitogram', :title => 'Connect with us on Facebook', :class => 'btn btn-soc s-facebook btn-soc-lg', :target => '_blank' do
+            %i.ico-circle.fa.fa-facebook
+            facebook
+        %li
+          = link_to '#', :title => 'Connect with us on Twitter', :class => 'btn btn-soc s-twitter btn-soc-lg', :target => '_blank' do
+            %i.ico-circle.fa.fa-twitter
+            twitter
+        %li
+          = link_to '#', :title => 'Connect with us on Google', :class => 'btn btn-soc s-google btn-soc-lg', :target => '_blank' do
+            %i.ico-circle.fa.fa-google-plus
+            google+
+    .bg-top
+  / END .keep-in-touch
+
+/ END .content-page

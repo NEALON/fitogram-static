@@ -1,3 +1,5 @@
+%div#top
+  
 %header.header
   .navbar.navbar-default.navbar-fixed-top
     %ul.nav.navbar-nav
@@ -7,12 +9,11 @@
           Menu
       %li
         = link_to 'http://blog.fitogram.de/' do
-          %i.fa.fa-rss
+          %i.glyphicon.glyphicon-list-alt
           blog
           
     .navbar-header
       = link_to '/', :class => 'navbar-brand', :title => 'fitogram' do
         = image_tag("logotype.png")
       
-          
-          
+/ END .header         

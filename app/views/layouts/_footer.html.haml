@@ -1,4 +1,33 @@
 %footer.footer
-  .container
-    .copyright
-      &copy; 2014 All rights reserved
+  .inner
+    = link_to '#top', :title => 'Go Top', :class => 'btn btn-circle scroll-to' do
+      %i.fa.fa-chevron-up
+    .container
+      .row
+        .col-md-4.col-sm-5  
+          %h6 fitogram
+          %ul.list-links.list-inline
+            %li= link_to 'About Us', '#'
+            %li= link_to 'Jobs', '#'
+            %li= link_to 'AGB', '#'
+            %li= link_to 'Impressum', '#'
+            
+        .col-md-4.col-sm-3  
+          %h6 Our services
+          %ul.list-links.list-inline
+            %li= link_to 'Are you a service provider?', '#'
+            
+        .col-md-4.col-sm-4 
+          %h6 Say hello
+          %ul.list-links.list-inline
+            %li= link_to 'Contact', '#'
+            %li= link_to 'Blog', '#'
+            
+          = render 'layouts/soc_list'
+      
+      %hr
+      
+      %p.copyright
+        &copy; 2014 All rights reserved
+      
+/ END .footer

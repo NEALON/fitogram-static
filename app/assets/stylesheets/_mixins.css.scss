@@ -83,3 +83,12 @@
   background-image: radial-gradient($type, $inner-color, $outer-color);
   background-repeat: no-repeat;
 }
+
+// Typography
+// -------------------------
+@mixin text-emphasis-variant($color) {
+  color: $color;
+  &:hover {
+    color: $color;
+  }
+}

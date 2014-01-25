@@ -6,16 +6,7 @@
     
   %hr
   
-  %ul.soc-links.list-unstyled
-    %li.s-facebook
-      = link_to 'https://www.facebook.com/fitogram', :title => 'Connect with us on Facebook', :target => '_blank' do
-        %i.fa.fa-facebook
-    %li.s-twitter
-      = link_to '#', :title => 'Connect with us on Twitter', :target => '_blank' do
-        %i.fa.fa-twitter
-    %li.s-google
-      = link_to '#', :title => 'Connect with us on Google', :target => '_blank' do
-        %i.fa.fa-google-plus
+  = render 'layouts/soc_list'
         
   %hr
   
@@ -56,6 +47,11 @@
     %li= link_to 'Jobs', '#'
     %li= link_to 'Contacts', '#'
     %li= link_to 'Press & Media', '#'
-    
 
-.menu-bg
+  %ul.nav.bottom-links
+    %li= link_to 'Terms of service', '#'
+    %li= link_to 'Imprint', '#'
+    
+/ END .menu
+
+.menu-bg 
