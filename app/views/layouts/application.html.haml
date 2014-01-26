@@ -12,8 +12,8 @@
     - if content_for?(:html_head)
       = yield(:html_head)
     = csrf_meta_tags
-  %body
-    .root  
+  %body#top{class: "#{controller_name} #{action_name}"}
+    .root
       = render 'layouts/header'
       = render 'layouts/navigation'
       

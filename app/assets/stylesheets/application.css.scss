@@ -71,6 +71,17 @@ p { margin-bottom: 22px; }
   &:after { bottom: 100%; border: {left: 9px solid transparent; right: 9px solid transparent; bottom: 11px solid $white;} content: ''; display: block; height: 0; left: 48px; margin-bottom: -1px; position: absolute; width: 0; }
 }
 
+// Breadcrumb
+.breadcrumb { font-size: 14px; padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal; 
+  a { color: $text-color;
+    &:hover, &:focus { color: $blue; }
+  }
+}
+
+// Tooltip
+.tooltip { font: {size: 14px; weight: normal;} }
+.tooltip-inner { border-radius: 4px; }
+
 
 /* ==========================================================================
    Typography
@@ -134,7 +145,7 @@ h5 { margin-bottom: 20px; }
 
 h2, .h2 { margin-bottom: 30px; }
 h4, .h4 { line-height: 1.4; }
-h5, .h5, h6, .h6 { font-weight: normal; }
+h5, .h5 { font-weight: normal; }
 
 @media (min-width: $screen-md-min) {
   h1, .h1 { font-size: $font-size-h1-lg; }
@@ -153,6 +164,17 @@ h2 + h3 { margin-top: 16px; }
 .text-warning { @include text-emphasis-variant($state-warning-text); }
 .text-danger { @include text-emphasis-variant($state-danger-text); }
 
+.text-primary a, .text-success a, .text-info a, .text-warning a, .text-danger a,
+a.text-primary, a.text-success, a.text-info, a.text-warning, a.text-danger {
+  text-decoration: underline;
+  
+  &:hover { text-decoration: none; }
+}
+
+h4 small, h4 .small, h5 small, h5 .small, h6 small, h6 .small { font-size: 80%; }
+
+label { color: $gray-dark; }
+
 
 /* ==========================================================================
    Buttons Styles
@@ -165,6 +187,13 @@ h2 + h3 { margin-top: 16px; }
   &.active {
     background-image: none;
   }
+}
+
+// Button Link
+.btn-link { color: $gray-dark; 
+  &:hover, &:focus { color: $blue; }
+  
+  &.btn-sm { font-size: 12px; line-height: (ceil($font-size-base * 0.875) * $line-height-base); }
 }
 
 .btn-circle { background: $body-bg; border: 0 none; border-radius: 50px; color: $blue; font-size: 37px; height: 100px; line-height: 100px; padding: 0; text-align: center; @include transition(#{all .3s}); width: 100px; 
@@ -191,6 +220,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   .btn { margin: {left: 15px; right: 15px;} }
 }
 
+// Button Group
+.btn-group { background: #e6e6e6; border: 1px solid #909191; border-color: #909191 mix(#909191, #e6e6e6) #e6e6e6; border-radius: 4px; @include box-shadow(#{inset 0 3px 5px -2px rgba($black, .2)}); padding: 1px 0;
+  > .btn { border-radius: 4px!important; color: $gray-light; position: relative;
+    &:after { background: #c6c6c6; @include gradient-vertical-three-colors(#e0e0e0, #c6c6c6, 50%, #e0e0e0); content: ''; display: none; height: 94%; left: auto; margin-left: -3px; position: absolute; top: 3%; width: 1px; }
+    + .btn:after { display: block; }
+    &.active + .btn:after, &.active:after { display: none; }
+  }
+}
+
+.btn-group-danger {
+  > .btn { border: 1px solid transparent; }
+  > .btn.active { @include box-shadow(#{none}); @include btn-styles($btn-danger-bg); color: $white; }
+}
+
+.btn-group-justified { border-spacing: 1px 0; 
+  > .btn { padding: {left: 1px; right: 1px;} }
+}
+
 
 /* ==========================================================================
    Form Styles
@@ -204,6 +251,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn { line-height: $line-height-large + 0.1; }
+
+input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
+
+.radio, .checkbox { margin-top: 0; }
+
+@media (min-width: $screen-md-min) {
+  // Checkboxes and radios
+  .radio, .checkbox { padding-left: 20px; }
+  
+  .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] { margin-left: -20px; }
+}
 
 
 /* ==========================================================================
@@ -374,11 +432,29 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
    ========================================================================== */
  
 .wrapper-content { background: $body-bg; float: left; margin-left: 0; position: relative; @include transition(#{all .3s}); width: 100%; z-index: 3;
-  @media (min-width: $screen-md-min) { float: none; height: 100%; width: auto; }
+  @media (min-width: $screen-md-min) { background: $gray-dark; float: none; height: 100%; width: auto; }
   
   &:after { @include box-shadow(#{inset 1px 2px 15px rgba($black, .3)}); content: ""; display: none; height: 100%; left: 0; position: absolute; right: 0; top: 0; z-index: $zindex-navbar-fixed - 1; }
 
-  > .content-page { position: relative; overflow: hidden; @include clearfix; }
+  > .content-page { background: $body-bg; @include gradient-vertical-three-colors(#f8f8f8, #f9decb, 70%, #cb978a); margin-bottom: -#{$footer-top + 50px}; min-height: 500px; overflow: hidden; padding: {bottom: $footer-top + 50px; top: 30px;} position: relative; @include clearfix; 
+    &.home-content { background: none $body-bg; @include reset-filter; }
+  }
+}
+
+// Page Header
+.page-header { border: 0 none; margin: 0 0 25px; padding: 0; 
+  .media {
+    > .pull-left, > .pull-right { float: none!important; margin: {left: 0; right: 0;} }
+    .media-body { overflow: visible; }
+  }
+  
+  @media (min-width: $screen-md-min) {
+    .media {
+      > .pull-left { float: left!important; margin-right: 10px; }
+      > .pull-right { float: right!important; margin-left: 10px; }
+      .media-body { overflow: visible; }
+    }
+  }
 }
 
 /**
@@ -418,7 +494,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     &:before { @include rotate(1.6deg); margin-top: -30px; @include opacity(.5); }
     &:after { @include rotate(0.7deg); margin-top: -12px; @include opacity(.3); }
     
-    @media (min-width: $screen-md-min) { max-height: 900px; min-height: 350px;
+    @media (min-width: $screen-md-min) {
       &:before { margin-top: -1.6%; }
       &:after { margin-top: -0.7%; }
     }
@@ -426,6 +502,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   
   .dropdown {
     .dropdown-menu { width: 100%; }
+  }
+  
+  // Hero Small
+  &.hero-small { background: image-url('being-active-2.jpg') center center $gray-dark; background: {attachment: static; size: cover;} height: auto; min-height: 0; max-height: none; padding: {top: 46px; bottom: 59px;}
+    .inner {
+      @media (min-width: $screen-md-min) { min-height: none; position: static; margin-top: 0; }
+    }
   }
 }
 
@@ -437,14 +520,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   @media (min-width: $screen-md-min) { background-size: 0 100%; }
 }
 
-.scroll-end { margin-bottom: 15px; position: relative; top: -#{$navbar-height}; 
-  @media (min-width: $screen-sm-min) { margin-bottom: 50px; top: -#{$navbar-height-lg}; }
+.scroll-end { position: relative; top: -#{$navbar-height}; 
+  @media (min-width: $screen-sm-min) { top: -#{$navbar-height-lg}; }
 }
 
 /**
  * Find Place Unit
  */
 .find-place-unit {
+  @media (min-width: $screen-sm-min) { margin-top: 20px; }
+  
   // Wrapper Google map
   .wrapper-map { margin-bottom: -180px; position: relative; z-index: 3;
     .btn { margin-top: 20px; }
@@ -577,7 +662,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /**
  * Keep in touch
  */
-.keep-in-touch { background: image-url('keep-in-touch.jpg') center center #e5e5e5; background: {attachment: fixed; size: cover;} margin-top: 50px; overflow: hidden; padding: {bottom: 100px; top: 60px;} position: relative; text-align: center; z-index: 1;
+.keep-in-touch { background: image-url('keep-in-touch.jpg') center center #e5e5e5; background: {attachment: fixed; size: cover;} margin: {bottom: -($footer-top + 50px); top: 50px;} overflow: hidden; padding: {bottom: 100px; top: 60px;} position: relative; text-align: center; z-index: 1;
   .media { margin-top: -5px;
     .media-body { padding: 5px; }
     .pull-right { margin:{top: 5px; bottom: 5px;} }
@@ -617,12 +702,57 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   }
 }
 
+/**
+ * Filters List
+ */
+.filter-list { margin-left: 14px; 
+  @media (min-width: $screen-md-min) {
+    .radio, .checkbox { padding-left: 35px; }
+    .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] { margin-left: -35px; }
+  }
+}
+
+.filters-n-map { margin-bottom: 10px; }
+
+
+/**
+ * Slider Range (jQuery UI slider)
+ */
+.slider-range { background: #e6e6e6; border-radius: 20px; border-color: #999999 #d4d4d4 #e0e0e0; @include box-shadow(#{inset 0 1px 3px rgba($black, .2)}); height: 16px;
+  .ui-slider-range { background: #aed4e6; border-radius: 20px; @include box-shadow(#{inset 0 1px 3px rgba($black, .2)}); }
+  .ui-slider-handle { @extend .fa; background: $body-bg; border: 1px solid #d6d6d6; border-radius: 20px; color: #d6d6d6; cursor: pointer; font: {size: 14px; weight: normal;} height: 28px; line-height: 27px; margin: {left: -15px; top: -15px;} text-align: center; top: 50%; @include rotate(-90deg); width: 28px; 
+    &:before { content: '\f0c9'; }
+    &:hover, &:focus { background: $white; outline: none; text-decoration: none; }
+  }
+}
+
+// Price Range
+.wrapper-price-range { margin-bottom: 8px; @include clearfix;
+  h6 { margin: {bottom: 20px; top: 0;} }
+  
+  .price-titles { color: $gray-dark; font: {size: 15px; weight: bold;} height: 30px; margin-top: 12px; position: relative;
+    li { position: absolute; left: 0; top: 0; white-space: nowrap; 
+      + li { left: (100% / 3); margin-left: -9px; 
+        + li { left: (100% / 3 * 2); margin-left: -13px; 
+          + li { left: auto; right: 0; }
+        }
+      }
+    }
+    
+    @media (min-width: $screen-md-min) { font-size: 18px; }
+  }
+  
+  .wrapper-slider { margin: 0 15px;
+    @media (min-width: $screen-md-min) { margin: 0; }
+  }
+}
+
 
 /* ==========================================================================
    Footer Styles
    ========================================================================== */
 
-.footer { color: $gray-lighter; overflow: hidden; margin-top: -100px; padding-top: 100px; position: relative; text-align: center; z-index: 5;
+.footer { color: $gray-lighter; overflow: hidden; margin-top: -50px; padding-top: 50px + $footer-top; position: relative; text-align: center; z-index: 5;
   .btn-circle { background: $white; border-radius: 50px; @include box-shadow(#{0 -3px 6px rgba($black, .6)}); color: $gray-dark; font-size: 37px; height: 80px; line-height: 80px; left: 50%; margin: {top: -50px; left: -40px;} position: absolute; top: 0; @include transition(#{all .3s}); width: 80px; z-index: 5; 
     &:hover, &:focus { @include box-shadow(#{none}); color: $blue; }
   }
@@ -631,7 +761,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     &:hover, &:focus { color: lighten($gray-lighter, 12%); text-decoration: underline; }
   }
   
-  h6, .h6 { margin-top: 50px; }
+  h6, .h6 { font: {size: 18px; weight: bold;} margin-top: 50px; }
 
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: $white; }
 
@@ -667,12 +797,54 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 
 /* ==========================================================================
+   Icons
+   ========================================================================== */
+
+// Flaticon
+@font-face {  
+  font-family: 'Flaticon';
+  src: asset-url('icons/flaticon.eot');
+  src: asset-url('icons/flaticon.eot?#iefix') format('embedded-opentype'),
+       asset-url('icons/flaticon.woff') format('woff'),
+       asset-url('icons/flaticon.ttf') format('truetype'),
+       asset-url('icons/flaticon.svg#flaticon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: 'Flaticon';
+  font-style: normal;
+}
+
+.flaticon-running:before {
+  content: "\e000";
+}
+
+// Icon Provider
+.ico-provider.glyphicon { background: $orange; border-radius: 40px; color: $white; font-size: 18px; height: 40px; line-height: 40px; overflow: hidden; text-align: center; width: 40px; }
+
+// Icon Activity
+.ico-activity { background: $red; border-radius: 40px; color: $white; font-size: 30px; height: 40px; line-height: 40px; overflow: hidden; text-align: center; width: 40px; }
+
+.media {
+  > .ico-provider.glyphicon, > .ico-activity { margin-bottom: 1px; 
+    + .media-body { margin-top: 10px; }
+  }
+}
+
+.fa-question-circle { margin-left: 5px; }
+
+
+/* ==========================================================================
    Special Classes
    ========================================================================== */
   
 .no-marg-top { margin-top: 0!important; }
 .no-marg-bottom { margin-bottom: 0!important; }
 
+.marg-top { margin-top: 20px!important; }
 .marg-bottom { margin-bottom: 20px!important; }
 
 .lower { text-transform: lowercase!important; }
@@ -680,6 +852,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .hidden-xsmall { display: none!important; 
   @media (min-width: $screen-xs-min) { display: inherit!important; }
+}
+
+.text-center-sm { text-align: center; 
+  @media (min-width: $screen-md-min) { text-align: inherit; }
 }
 
 .nowrap { white-space: nowrap!important; }

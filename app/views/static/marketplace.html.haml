@@ -1,0 +1,400 @@
+%section.hero-unit.hero-small
+  .bg-radial
+  .container
+    .inner       
+      %form.form-inline
+        .row-search
+          .form-group
+            .dropdown
+              %input.form-control{:type => 'text', :id => 'in-type', :placeholder => 'What are you looking for?'}
+              / Status 2 (need ajax)
+              %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
+                %li.dropdown-header All Offers
+                %li.divider
+                %li.dropdown-header Popular Searches...
+                %li= link_to 'Yoga', '#'
+                %li= link_to 'Zumba', '#'
+                %li= link_to 'Pilates', '#'
+                %li= link_to 'fitnessstudio', '#'
+                %li= link_to 'sauna', '#'
+              / Status 3 (need ajax)
+              %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
+                %li.dropdown-header Popular Searches...
+                %li= link_to 'fitnessstudio', '#'
+                %li= link_to 'fitness Pump', '#'
+                %li= link_to 'fit body', '#'
+                %li= link_to 'fitness first', '#'
+                %li= link_to 'mcfit', '#'
+                %li.divider
+                %li.dropdown-header Providers
+                %li= link_to 'fitness first aachener str.', '#'
+                %li= link_to 'fitness first mozart str.', '#'
+                %li= link_to 'fitness first on rhein', '#'
+                %li= link_to 'fitness lady first mittelstr.', '#'
+                %li.more= link_to 'and 23 more...', '#'
+              
+          .form-group
+            %input.form-control{:type => 'text', :id => 'in-city', :placeholder => 'Where?'}
+          .form-group
+            %button.btn.btn-block.btn-primary.lower Find
+  
+  .bg-bottom 
+  
+/ END .hero-unit.hero-small
+
+.content-page
+  .container
+  
+    .page-header
+      .media
+        %ol.breadcrumb.pull-right.no-marg-bottom
+          %li= link_to 'Home', '#'
+          %li= link_to 'Berlin', '#'
+          %li.active Marketplace
+                  
+        .marg-bottom.hidden-md.hidden-lg
+        
+        .media-body
+          %h4.no-marg-top.no-marg-bottom
+            “fitnessstudio”
+            %small in Berlin
+        
+    / END .page-header
+    
+    .filters-n-map.row 
+      .col-md-push-6.col-sm-push-4.col-sm-8.col-md-6
+        .flex-video.thumbnail
+          %iframe{frameborder: "0", height: "410", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?q=%D0%B1%D0%B5%D1%80%D0%BB%D0%B8%D0%BD&ie=UTF8&hq=&hnear=%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD,+%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F&gl=md&t=m&ll=52.520399,13.404694&spn=0.342604,1.303253&z=10&iwloc=A&output=embed&hl=en", width: "950"}
+      .col-md-pull-6.col-sm-pull-8.col-sm-4.col-md-6
+        .row
+          .col-md-6.marg-bottom
+            %h4.text-warning.no-marg-top
+              .media
+                %i.glyphicon.glyphicon-home.ico-provider.pull-left
+                .media-body 37 provider
+            .filter-list.marg-top
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  fitnessstudio
+                  %strong.text-warning 20
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  low cost studio
+                  %strong.text-warning 7
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  premium studio
+                  %strong.text-warning 4
+              .checkbox.small
+                =link_to 'show 6 more', '#', :class => 'text-warning'
+              
+          .col-md-6.marg-bottom
+            %h4.text-danger.no-marg-top
+              .media
+                %i.fa.flaticon-running.ico-activity.pull-left
+                .media-body 124 activities
+            .filter-list.marg-top
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Yoga
+                  %strong.text-warning 13
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Pilates
+                  %strong.text-warning 20
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Zumba
+                  %strong.text-warning 4
+              .checkbox.small
+                =link_to 'show 87 more', '#', :class => 'text-danger'
+        / END .row
+        
+        .wrapper-price-range
+          .row
+            .col-md-4
+              %h6 
+                Price Range
+                =link_to '#', :data => {:toggle => 'tooltip', :container => 'body'}, :title => 'Test tooltip' do
+                  %i.fa.fa-question-circle
+            .col-md-8
+              .wrapper-slider
+                .slider-range#slider-price
+                %ul.price-titles.list-unstyled
+                  %li &euro;
+                  %li &euro;&euro;
+                  %li &euro;&euro;&euro;
+                  %li &euro;&euro;&euro;&euro;
+        / END .wrapper-price-range
+        
+        .row.text-center-sm#visible-an-filters
+          .col-md-6.col-sm-12
+            %button.btn.btn-default.dropdown-toggle.btn-block.btn-sm.btn-shadow.marg-bottom{:data => {:toggle => 'show-hide', :hide => '#visible-an-filters', :show => '#hidden-an-filters'}}
+              show more filters
+              %span.caret
+          .col-md-6.col-sm-12     
+            %button.btn.btn-link.btn-sm.marg-bottom
+              reset all filters    
+              %i.fa.fa-times 
+        / END #visible-an-filters
+                            
+    / END .filters-n-map.row
+      
+    #hidden-an-filters.hidden
+      .row
+        .col-md-7.col-sm-6.marg-bottom
+          %h4.text-warning.no-marg-top
+            .media
+              %i.glyphicon.glyphicon-home.ico-provider.pull-left
+              .media-body Provider additional Filters
+          
+          .row
+            .col-md-4.col-sm-12
+              %h6.marg-bottom Equipment Facilities
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  fitnessstudio
+                  %strong.text-warning 20
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Pool
+                  %strong.text-warning 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Sauna
+                  %strong.text-warning 2
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Hammam
+                  %strong.text-warning 0
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Group courses (with a trainer)
+                  %strong.text-warning 12
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Group courses (by video)
+                  %strong.text-warning 11
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Cardio Area
+                  %strong.text-warning 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Strength Area
+                  %strong.text-warning 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Free weight area
+                  %strong.text-warning 4
+              
+            .col-md-4.col-sm-12
+              %h6 Services
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Newcomers Check
+                  %strong.text-warning 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Trial Session
+                  %strong.text-warning 2
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Orientation hour
+                  %strong.text-warning 0
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Training control
+                  %strong.text-warning 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Personal training
+                  %strong.text-warning 1
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Nutrition consulting
+                  %strong.text-warning 2
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Diagnostics
+                  %strong.text-warning 0
+            .col-md-4.col-sm-12
+              %h6 Comfort/Practical
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  7/7
+                  %strong.text-warning 8
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  24/7
+                  %strong.text-warning 6
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Parking
+                  %strong.text-warning 8
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Bar
+                  %strong.text-warning 2
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Restaurant
+                  %strong.text-warning 0
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Women only area
+                  %strong.text-warning 2
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Creche
+                  %strong.text-warning 1
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Indiviual showers
+                  %strong.text-warning 8
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Unlimited towels
+                  %strong.text-warning 9
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Individual lockers
+                  %strong.text-warning 2
+              
+        .col-md-5.col-sm-6.marg-bottom
+          %h4.text-danger.no-marg-top
+            .media
+              %i.fa.flaticon-running.ico-activity.pull-left
+              .media-body Activities additional Filters
+          .clearfix
+          %h6.marg-bottom Special criteria
+          .row
+            .col-md-6.col-sm-12
+              .checkbox.no-marg-top
+                %label
+                  %input{:type => 'checkbox'}
+                  Beginner
+                  %strong.text-danger 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Intermediate
+                  %strong.text-danger 12
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Expert
+                  %strong.text-danger 10
+            .col-md-6.col-sm-12
+              .checkbox.no-marg-top
+                %label
+                  %input{:type => 'checkbox'}
+                  Preventive activity
+                  %strong.text-danger 4
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Only for woman
+                  %strong.text-danger 2
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Senior
+                  %strong.text-danger 1
+              .checkbox
+                %label
+                  %input{:type => 'checkbox'}
+                  Junior
+                  %strong.text-danger 2
+                  
+          %h6.marg-bottom When
+          .btn-group.btn-group-justified.btn-group-danger.marg-bottom{:data => {:toggle => 'buttons'}}
+            %label.btn.btn-sm 
+              %input{:type => 'checkbox'}
+              All
+            %label.btn.btn-sm.active 
+              %input{:type => 'checkbox'}
+              Mon
+            %label.btn.btn-sm.active 
+              %input{:type => 'checkbox'}
+              Tue
+            %label.btn.btn-sm 
+              %input{:type => 'checkbox'}
+              Wed
+            %label.btn.btn-sm 
+              %input{:type => 'checkbox'}
+              Thu
+            %label.btn.btn-sm 
+              %input{:type => 'checkbox'}
+              Fri
+            %label.btn.btn-sm 
+              %input{:type => 'checkbox'}
+              Sat
+            %label.btn.btn-sm 
+              %input{:type => 'checkbox'}
+              Sun
+            
+          .btn-group.btn-group-justified.btn-group-danger.marg-bottom{:data => {:toggle => 'buttons'}}
+            %label.btn.btn-sm.active 
+              %input{:type => 'radio', :name => 'day-option'}
+              Morning
+            %label.btn.btn-sm 
+              %input{:type => 'radio', :name => 'day-option'}
+              Lunch time
+            %label.btn.btn-sm 
+              %input{:type => 'radio', :name => 'day-option'}
+              Afternoon
+            %label.btn.btn-sm 
+              %input{:type => 'radio', :name => 'day-option'}
+              After 18:00
+      / END .row
+      
+      .row
+        .col-sm-4.col-md-6
+          .row.text-center-sm
+            .col-md-6.col-sm-12
+              %button.btn.btn-default.dropdown-toggle.btn-block.btn-sm.btn-shadow.marg-bottom.dropup{:data => {:toggle => 'show-hide', :hide => '#hidden-an-filters', :show => '#visible-an-filters'}}
+                hide filters
+                %span.caret
+            .col-md-6.col-sm-12     
+              %button.btn.btn-link.btn-sm.marg-bottom
+                reset all filters    
+                %i.fa.fa-times           
+    / END #hidden-an-filters
+    
+    %hr.marg-top.marg-bottom
+          
+  / END .container
+/ END .content-page

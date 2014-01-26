@@ -22,6 +22,21 @@
 #= require jquery.ui.datepicker
 #= require jquery.ui.map.min
 #= require jquery.ui.autocomplete
+#= require jquery.ui.slider
 #
 #= require navigation
 #= require scrolling
+#= require slider_price
+
+$(document).ready ->
+	# Init Tooltip
+	$('[data-toggle="tooltip"]').tooltip()
+	
+	# Init Show/Hide toggles (as on Marketplace page - filters)
+	$('body').on 'click', '[data-toggle="show-hide"]', ->
+  	hideEl = $(this).data('hide')
+	  showEl = $(this).data('show')
+	  $(hideEl).removeClass("show").addClass "hidden"
+  	$(showEl).removeClass("hidden").addClass "show"
+
+	
