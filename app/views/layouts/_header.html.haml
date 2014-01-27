@@ -1,6 +1,6 @@
 %header.header
   .navbar.navbar-default.navbar-fixed-top
-    %ul.nav.navbar-nav
+    %ul.nav.navbar-nav.navbar-left
       %li
         = link_to '#', :class => 'toggle-menu' do
           %i.fa.fa-bars
@@ -13,5 +13,9 @@
     .navbar-header
       = link_to '/', :class => 'navbar-brand', :title => 'fitogram' do
         = image_tag("logotype.png")
+    
+    - if content_for?(:header_search_place)
+      .navbar-form.navbar-right
+        = yield(:header_search_place)
       
 / END .header         

@@ -27,6 +27,9 @@
 #= require navigation
 #= require scrolling
 #= require slider_price
+#=
+#= Swiper Touch Slider
+#= require libs/idangerous.swiper-2.4.js
 
 $(document).ready ->
 	# Init Tooltip
@@ -38,5 +41,20 @@ $(document).ready ->
 	  showEl = $(this).data('show')
 	  $(hideEl).removeClass("show").addClass "hidden"
   	$(showEl).removeClass("hidden").addClass "show"
+ 	
+ 	# Init Provider Gallery Slider
+ 	providerGallery = new Swiper("#provider-gallery .swiper-container",
+	  loop: true,
+	  loopAdditionalSlides: 4,
+	  slidesPerGroup: 4,
+	  slidesPerView: 4,
+	  resizeReInit: true,
+	  grabCursor: true
+	)
+	
+	$('body').on 'click', '#provider-gallery .next-slide', (e) ->
+	  e.preventDefault()
+	  providerGallery.swipeNext()
+
 
 	

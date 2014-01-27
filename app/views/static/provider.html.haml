@@ -1,0 +1,107 @@
+- content_for :header_search_place do
+  = render 'partials/search', :size => 'small'
+
+.content-page
+  .container.well-white
+  
+    .provider-unit
+      .provider-cover
+        = image_tag("covers/img1-1045x368.jpg", :class => 'img-responsive', :title => 'McFit Köln Bonner Straße')
+        .overlay
+          %h4.lower Open Today until 21:00
+          %p
+            %small Last update: 1 week ago
+      / END .provider-cover
+      .row
+        %article.col-md-8
+          .marg-right
+            .provider-top-info
+              = image_tag("providers/img2-231x231.jpg", :class => 'img-responsive pull-left thumbnail', :title => 'McFit Köln Bonner Straße')
+              .media-body
+                .provider-gallery-slider#provider-gallery
+                  = link_to '#', :class => 'next-slide' do
+                    %i.fa.fa-caret-right
+                  .swiper-container
+                    .swiper-wrapper
+                      .swiper-slide= image_tag("gallery/img1-63x63.jpg", :class => 'img-responsive thumbnail') 
+                      .swiper-slide= image_tag("gallery/img2-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img3-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img4-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img3-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img2-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img4-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img1-63x63.jpg", :class => 'img-responsive thumbnail')
+                      .swiper-slide= image_tag("gallery/img3-63x63.jpg", :class => 'img-responsive thumbnail')     
+            / END .provider-top-info
+          %h2 
+            McFit Köln Bonner Straße
+            .small fitness studio
+          %blockquote
+            Holmes Place gehört weltweit zu den führenden Anbietern für eine ganzheitliche Gesundheits- und Fitnessbetreuung. Genißene Sie unsere vielseitige Fitness- und Serviceangebote sowie unseren neuen fantastischen Spa-Bereich. Lernen Sie die Vielzahl der Service-Angebote bei Holmes Place kenen und lassen Sie sich inspirieren, getreu unserem Motto: One life.live it well!
+          
+            
+        %aside.provider-right-info.col-md-4
+          .provider-address
+            .form-group
+              = link_to 'http://www.thewebsite.com/', :class => 'btn btn-default btn-block btn-shadow', :target => '_blank' do
+                %i.fa.fa-globe
+                www.thewebsite.com
+            .form-group
+              = link_to 'mailto:info@thewebsite.com', :class => 'btn btn-default btn-block btn-shadow', :target => '_blank' do
+                %i.fa.fa-envelope-o
+                info@thewebsite.com
+            .form-group
+              = link_to 'tel:022112345678', :class => 'btn btn-default btn-block btn-shadow', :target => '_blank' do
+                %i.fa.fa-phone
+                0221 1234 5678
+          .wrapper-map
+            .flex-video.squarescreen.thumbnail
+              %iframe{frameborder: "0", height: "410", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?q=%D0%B1%D0%B5%D1%80%D0%BB%D0%B8%D0%BD&ie=UTF8&hq=&hnear=%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD,+%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F&gl=md&t=m&ll=52.520399,13.404694&spn=0.342604,1.303253&z=10&iwloc=A&output=embed&hl=en", width: "950"}
+            .bottom-info.row
+              .col-md-8
+                .pull-left.marg-bottom
+                  .media
+                    %i.fa.fa-map-marker.pull-left
+                    .media-body
+                      %strong Bonner Straße 209
+                      .small 50968 Köln
+              .col-md-4.text-right
+                = link_to '#', :class => 'btn btn-default btn-block btn-shadow marg-bottom', :target => '_blank' do
+                  %i.fa.fa-road
+                  Route
+          %hr.no-marg-top
+          .open-hours-list
+            %h6
+              .media
+                %i.fa.fa-clock-o.pull-left
+                .media-body Opening Hours
+            %ul.list-unstyled
+              %li 
+                .day Monday
+                .time 08:00 - 21:00
+              %li.active 
+                .day Tuesday
+                .time 08:00 - 21:00
+              %li
+                .day Wednesday
+                .time 08:00 - 21:00
+              %li 
+                .day Thrusday
+                .time 08:00 - 23:00
+              %li 
+                .day Friday
+                .time 08:00 - 21:00
+              %li 
+                .day Saturday
+                .time 10:00 - 18:00
+              %li
+                .day Sunday
+                .time 10:00 - 18:00
+        / END .provider-right-info        
+      / END .row
+      
+    / END .provider-unit
+      
+                    
+  / END .container
+/ END .content-page

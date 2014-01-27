@@ -6,6 +6,11 @@
     
   %hr
   
+  - if content_for?(:header_search_place)
+    = yield(:header_search_place)    
+    %hr
+      
+  
   = render 'layouts/soc_list'
         
   %hr

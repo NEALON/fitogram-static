@@ -6,41 +6,7 @@
         %h1.no-marg-top.no-marg-bottom Being active is being alive.
         %h3 We’ll help you find the best activity to be in shape.
       
-      %form.form-inline
-        .row-search
-          .form-group
-            .dropdown
-              %input.form-control.input-lg{:type => 'text', :id => 'in-type', :placeholder => 'What are you looking for?'}
-              / Status 2 (need ajax)
-              %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
-                %li.dropdown-header All Offers
-                %li.divider
-                %li.dropdown-header Popular Searches...
-                %li= link_to 'Yoga', '#'
-                %li= link_to 'Zumba', '#'
-                %li= link_to 'Pilates', '#'
-                %li= link_to 'fitnessstudio', '#'
-                %li= link_to 'sauna', '#'
-              / Status 3 (need ajax)
-              %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
-                %li.dropdown-header Popular Searches...
-                %li= link_to 'fitnessstudio', '#'
-                %li= link_to 'fitness Pump', '#'
-                %li= link_to 'fit body', '#'
-                %li= link_to 'fitness first', '#'
-                %li= link_to 'mcfit', '#'
-                %li.divider
-                %li.dropdown-header Providers
-                %li= link_to 'fitness first aachener str.', '#'
-                %li= link_to 'fitness first mozart str.', '#'
-                %li= link_to 'fitness first on rhein', '#'
-                %li= link_to 'fitness lady first mittelstr.', '#'
-                %li.more= link_to 'and 23 more...', '#'
-              
-          .form-group
-            %input.form-control.input-lg{:type => 'text', :id => 'in-city', :placeholder => 'Where?'}
-          .form-group
-            %button.btn.btn-block.btn-primary.btn-lg.lower Find
+      = render 'partials/search', :size => 'large'
   
   .bg-bottom
     = link_to '#scroll-to-find-place', :title => 'Learn More', :class => 'btn btn-circle scroll-to' do
