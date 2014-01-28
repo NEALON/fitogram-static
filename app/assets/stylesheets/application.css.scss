@@ -64,14 +64,39 @@ p { margin-bottom: 22px; }
 
 // Dropdown
 .dropdown-menu { border-radius: $thumbnail-border-radius; color: $text-color; margin-top: 9px; padding: {top: 12px; bottom: 12px;} text-align: left; 
-  .dropdown-header { font: {family: $font-family-serif; size: 18px; weight: bold;} }
+  .dropdown-header { font: {family: $font-family-serif; size: 18px; weight: bold;} 
+    a { background: none transparent; color: $blue; font-weight: bold; padding: 0; text-decoration: none; 
+      &:hover { background: none transparent; color: darken($blue, 12%); text-decoration: underline; }
+    }  
+  }
+  
+  .group-list { margin: {left: 14px; right: 14px;}
+    + .group-list { border-top: 1px solid $dropdown-divider-bg; margin-top: 3px; padding-top: 11px; }
+    
+    > ul, > .dropdown-header { margin: {left: -14px; right: -14px;} }
+  }
+  
   .divider { margin: 3px 14px 11px; }
   .more { font-size: 14px;
     a { color: $blue; text-decoration: underline;
-      &:hover { background: none; color: $blue; text-decoration: none; }
+      &:hover, &:focus { background: none; color: $blue; text-decoration: none; }
     }
   }
-  > li > a { padding: 3px 19px; margin: {left: 1px; right: 1px;} }
+  
+  li a { color: $dropdown-link-color; clear: both; display: block; font-weight: normal; line-height: $line-height-base; margin: {left: 1px; right: 1px;} padding: 3px 19px; white-space: nowrap; 
+    &:hover, &:focus { text-decoration: none; color: $dropdown-link-hover-color; background-color: $dropdown-link-hover-bg; }
+  }
+  
+  .active > a {
+    &,
+    &:hover,
+    &:focus {
+      color: $dropdown-link-active-color;
+      text-decoration: none;
+      outline: 0;
+      background-color: $dropdown-link-active-bg;
+    }
+  }
   
   &:after { bottom: 100%; border: {left: 9px solid transparent; right: 9px solid transparent; bottom: 11px solid $white;} content: ''; display: block; height: 0; left: 48px; margin-bottom: -1px; position: absolute; width: 0; }
 }
@@ -276,6 +301,11 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
   
   .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] { margin-left: -20px; }
 }
+
+// Styles for Typeahead
+.twitter-typeahead { display: block!important; }
+.tt-hint { display: none!important; }
+.tt-query { background-color: $input-bg!important; vertical-align: inherit!important; }
 
 
 /* ==========================================================================
@@ -543,7 +573,7 @@ $min-height-content-page: 650px;
   }
   
   // Hero Small
-  &.hero-small { background: image-url('being-active-2.jpg') center center $gray-dark; background: {attachment: static; size: cover;} height: auto; min-height: 0; max-height: none; padding: {top: 46px; bottom: 59px;}
+  &.hero-small { background: image-url('being-active-2.jpg') center center $gray-dark; background: {attachment: fixed; size: cover;} height: auto; min-height: 0; max-height: none; padding: {top: 46px; bottom: 59px;}
     .inner {
       @media (min-width: $screen-md-min) { min-height: none; position: static; margin-top: 0; }
     }
