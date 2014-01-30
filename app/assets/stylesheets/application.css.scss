@@ -60,7 +60,9 @@ p { margin-bottom: 22px; }
 }
 
 // Thumbnail
-.thumbnail { border: 0 none; @include box-shadow(#{0 4px 6px rgba($black, .35)}); }
+.thumbnail { border: 0 none; @include box-shadow(#{0 4px 6px rgba($black, .35)}); 
+  &.thumbnail-sm { border-radius: ($thumbnail-border-radius - 2px); @include box-shadow(#{0 2px 4px rgba($black, 0.25)}); }
+}
 
 // Dropdown
 .dropdown-menu { border-radius: $thumbnail-border-radius; color: $text-color; margin-top: 9px; padding: {top: 12px; bottom: 12px;} text-align: left; 
@@ -124,7 +126,7 @@ p { margin-bottom: 22px; }
 
 // List Inline
 .list-inline {
-  > li { padding: {left: 0; right: 7px;} }
+  > li { padding: {left: 0; right: 6px;} }
 }
 
 
@@ -247,6 +249,9 @@ blockquote { border-left: 0 none; font: {size: $font-size-base; style: italic;} 
   &:before { content: '“'; font: {size: 65px; style: normal; weight: bold;} left: 0; line-height: 1.0; position: absolute; top: 0; }
 }
 
+// Label
+.label { @include inline-block; font: {family: $font-family-serif; size: 80%;} padding: .6em .65em .6em; }
+
 
 /* ==========================================================================
    Buttons Styles
@@ -348,6 +353,12 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
 .tt-hint { display: none!important; }
 .tt-query { background-color: $input-bg!important; vertical-align: inherit!important; }
 
+// Wrapper Input with Icon
+.wrapper-input { position: relative; 
+  > .form-control { padding-left: 42px; }
+  > .fa { color: $input-color-placeholder; font-size: 18px; height: 100%; line-height: 41px; left: 2px; position: absolute; text-align: center; top: 0; width: 40px; }
+}
+
 
 /* ==========================================================================
    Header Styles
@@ -366,6 +377,13 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
     
     .navbar-header { float: right;
       @media (min-width: $screen-md-min) { float: none; position: absolute; top: 0; left: 50%; margin-left: -#{62px + 15px}; }
+    
+      &.navbar-left { float: left; 
+        @media (min-width: $screen-md-min) { float: left; position: static; margin-left: 0; }
+        .navbar-brand {
+          @media (min-width: $screen-sm-min) { padding: {left: 0; right: 0;} }
+        }
+      }
     }
     
     @media (min-width: $screen-sm-min) { min-height: $navbar-height-lg; padding: {left: 20px; right: 20px;} } 
@@ -541,12 +559,43 @@ $min-height-content-page: 650px;
   > .content-page { background: $body-bg; @include gradient-vertical-three-colors(#f8f8f8, #f9decb, 70%, #cb978a); margin-bottom: -#{$footer-top + 50px}; min-height: $min-height-content-page; overflow: hidden; padding: {bottom: $footer-top + 50px; top: $top-pad-content-page;} position: relative; @include clearfix; 
     &.home-content { background: none $body-bg; @include reset-filter; }
     
-    > .well-white { background: $white; @include box-shadow(#{0 5px 20px rgba($black, .08)}); color: $gray-dark; margin: {top: -$top-pad-content-page; left: ($grid-gutter-width / 2); right: ($grid-gutter-width / 2);} min-height: $min-height-content-page; padding: {top: $top-pad-content-page; bottom: 30px;} 
-      @media (min-width: $screen-sm-min) { margin: {left: auto; right: auto;} }
+    > .well-white { background: $white; @include box-shadow(#{0 5px 20px rgba($black, .08)}); color: $gray-dark; margin: {top: -$top-pad-content-page; left: ($grid-gutter-width / 2); right: ($grid-gutter-width / 2);} min-height: $min-height-content-page; padding: {top: 35px; bottom: 30px;} 
+      @media (min-width: $screen-sm-min) { margin: {left: auto; right: auto;} padding-top: 60px; }
     
       hr { border-color: lighten($gray-lighter, 10%); margin: {top: 18px; bottom: 18px;} }
     }
   }
+}
+
+article > .marg-right { margin-right: 0!important; 
+  @media (min-width: $screen-sm-min) { margin-right: 15px!important; }
+}
+
+/**
+ * Sidebar Right
+ */
+.sidebar-right { font-size: 14px;
+  h6 { font-size: 18px; margin: {top: 27px; bottom: 17px;} }
+}
+
+// Features Blog
+.features-blog { @include clearfix;
+  h6 { font-size: 14px; margin: {top: 0; bottom: 1px;}
+    a { color: $gray-dark; 
+      &:hover { color: $blue; }
+    }
+    
+    @media (min-width: $screen-md-min) { margin-top: 8px; }
+  }
+  
+  p { margin-bottom: 0; }
+  
+  .media {
+    > .pull-left { margin-right: 25px; }
+    .thumbnail { margin-bottom: 0; }
+  }
+  
+  > li { margin-bottom: 20px; }
 }
 
 // Search Form
@@ -956,7 +1005,7 @@ $min-height-content-page: 650px;
  */
 
 // Provider Cover
-.provider-cover { margin: (-$top-pad-content-page) (-$grid-gutter-width / 2) 24px; position: relative;
+.provider-cover { margin: (-30px) (-$grid-gutter-width / 2) 24px; position: relative;
   img { margin: {left: auto; right: auto;} }
   
   .overlay { @include box-sizing(#{border-box}); padding: {left: ($grid-gutter-width / 2); right: ($grid-gutter-width / 2);} 
@@ -964,7 +1013,7 @@ $min-height-content-page: 650px;
     p { margin-bottom: 16px; }
   }
   
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-min) { margin-top: -60px;
     h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: $white; }
     .overlay { bottom: 0; @include box-shadow(#{inset 0 -100px 50px -25px rgba($black, .6)}); color: $white; left: 0; padding-top: 27px; position: absolute; right: 0; text: {align: right; shadow: 0 0 5px $black;} }
   }
@@ -1010,7 +1059,7 @@ $min-height-content-page: 650px;
 
 // Provider Right Info (Website, Email, Phone)
 .provider-right-info {
-  .btn { font-size: 14px; max-width: 100%; margin: {left: auto; right: auto;} width: 300px; }
+  .btn { font-size: 14px; max-width: 100%; margin: {left: auto; right: auto;} width: 315px; }
   
   .provider-address {
     .btn-block { padding: {left: $padding-base-horizontal; right: $padding-base-horizontal;} text-align: left; 
@@ -1084,7 +1133,7 @@ $min-height-content-page: 650px;
 }
 
 // Filter calendar sidebar
-.filter-calendar-sidebar { font-size: 14px; line-height: 1.15; margin: {top: 23px; left: auto; right: auto;} max-width: 300px; text-align: center;
+.filter-calendar-sidebar { font-size: 14px; line-height: 1.15; margin: {top: 23px; left: auto; right: auto;} max-width: 315px; text-align: center;
   .dropdown { margin-bottom: 45px; }
   h6 { font-size: 14px; margin: {top: 22px; bottom: 1px;} }
   p { margin-bottom: 15px; }
@@ -1093,6 +1142,49 @@ $min-height-content-page: 650px;
 }
 
 .last-updated { margin-top: 40px; text-align: center; }
+
+/**
+ * Item Blog
+ */
+.item-blog {
+  h3 { margin: {top: 0; bottom: 21px;}
+    a { color: $gray-dark; display: block; 
+      &:hover { color: $blue; }
+    }
+    
+    @media (min-width: $screen-md-min) { margin-top: 15px; }
+  }
+  
+  .bottom-info, .top-info { line-height: 25px; margin-bottom: 25px; @include clearfix;
+    > ul { color: $gray-light; float: left; font-size: 14px; margin-right: 10px;
+      li + li { margin-top: 5px; }
+      
+      @media (min-width: $screen-sm-min) {
+        li { float: left; 
+          + li { margin: {left: 28px; top: 0;} }
+        }
+      }
+      
+      a { color: $gray-light; text-decoration: none;
+        &:hover { color: $blue; }
+      }
+      
+      i { font-size: 18px; }
+      
+      .flaticon-calendar { font-size: 25px; margin: {right: 8px; left: -2px;} position: relative; top: -3px; }
+    }
+    
+    > a { clear: left; float: left; font: {family: $font-family-serif; size: 16px; weight: bold;} line-height: 24px; margin-top: 15px; text-decoration: none; 
+      .fa { font-size: 13px; }
+      
+      @media (min-width: $screen-md-min) { clear: none; float: right; margin-top: 0; }
+    }
+  }
+  
+  .top-info { margin: {top: -10px; bottom: 12px;} }
+}
+
+* + .item-blog { margin-top: 30px; }
 
 
 /* ==========================================================================
@@ -1256,6 +1348,25 @@ $min-height-content-page: 650px;
 }
 
 .fa-question-circle { margin-left: 5px; }
+
+/**
+ * List Tags
+ */
+.list-tags { font-size: 17.5px; 
+  > li { margin-bottom: 10px; }
+}
+
+/**
+ * Pagination row (with Older and Newer buttons)
+ */
+.pagination-row { margin-bottom: 30px; @include clearfix; 
+  > .btn { min-width: 110px; 
+    &.pull-left .fa { margin-right: 2px; }
+    &.pull-right .fa { margin-left: 2px; }
+    
+    @media (min-width: $screen-sm-min) { min-width: 140px; }
+  }
+}
 
 
 /* ==========================================================================
