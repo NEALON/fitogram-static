@@ -58,15 +58,18 @@ $(document).ready ->
   	$(showEl).removeClass("hidden").addClass "show"
  	
  	# Init Provider Gallery Slider
- 	providerGallery = new Swiper("#provider-gallery .swiper-container",
-	  loop: true
-	  loopAdditionalSlides: 4
-	  slidesPerGroup: 4
-	  slidesPerView: 4
-	  resizeReInit: true
-	  grabCursor: true
-	  centeredSlides: false
-	)
+ 	providerGallery = undefined
+	if $("#provider-gallery").length and $("#provider-gallery .swiper-wrapper .swiper-slide").size() > 4
+	  $("#provider-gallery").addClass "active-slideshow"
+	  
+	  providerGallery = new Swiper("#provider-gallery .swiper-container",
+	    loop: true
+	    #slidesPerGroup: 4
+	    slidesPerView: 4
+	    resizeReInit: true
+	    grabCursor: true
+	    centeredSlides: false
+	  )
 	
 	$('body').on 'click', '#provider-gallery .next-slide', (e) ->
 	  e.preventDefault()
