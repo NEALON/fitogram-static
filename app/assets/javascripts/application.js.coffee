@@ -26,7 +26,6 @@
 #
 #= require navigation
 #= require scrolling
-#= require slider_price
 #
 #= Swiper Touch Slider
 #= require libs/idangerous.swiper-2.4
@@ -37,8 +36,22 @@ $(document).ready ->
 	# Init Tooltip
 	$('[data-toggle="tooltip"]').tooltip()
 	
+	# Reset All filters
+	$('body').on 'click', '[data-toggle="reset-filters"]', (e) ->
+		e.preventDefault()
+		form = $(this).parents('form')[0]
+		form.reset()
+			
+		# Reset Price	
+		$("#slider-price").slider values: [0, 3]  if $("#slider-price").length
+		
+		# Reset Btns Group
+		$('.btn-group > .btn').removeClass 'active'
+		$('.btn-group > .btn:first-child').addClass 'active'
+	
 	# Init Show/Hide toggles (as on Marketplace page - filters)
-	$('body').on 'click', '[data-toggle="show-hide"]', ->
+	$('body').on 'click', '[data-toggle="show-hide"]', (e) ->
+  	e.preventDefault()
   	hideEl = $(this).data('hide')
 	  showEl = $(this).data('show')
 	  $(hideEl).removeClass("show").addClass "hidden"
@@ -58,6 +71,15 @@ $(document).ready ->
 	$('body').on 'click', '#provider-gallery .next-slide', (e) ->
 	  e.preventDefault()
 	  providerGallery.swipeNext()
+	
+	# Slider Price Init  
+	$("#slider-price").slider
+	  range: true
+	  min: 0
+	  max: 3
+	  values: [0, 2]
+	  slide: (event, ui) ->
+	    #do
 	  
 	# Init typeahead for Search Form	
 	$("input#in-type").typeahead [
