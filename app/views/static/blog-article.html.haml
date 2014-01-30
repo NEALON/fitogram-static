@@ -1,0 +1,82 @@
+- content_for :header_blog do
+  = render 'layouts/header_blog'
+
+.content-page
+  .container.well-white
+    .row
+      %article.col-md-8.col-sm-8.clearfix.marg-bottom
+        .marg-right
+          .item-blog
+            %h3= link_to 'This is an example of a standard post format', '#'
+            .bottom-info
+              %ul.list-unstyled
+                %li
+                  .media
+                    %i.fa.flaticon-calendar.pull-left
+                    .media-body
+                      %time 23 Dec 2014
+                %li
+                  = link_to '#' do
+                    %span.media
+                      %i.fa.fa-user.pull-left
+                      %span.media-body Christian Wingels
+                %li
+                  = link_to '#' do
+                    %span.media
+                      %i.fa.fa-comment.pull-left
+                      %span.media-body 4 Comments            
+            %p
+              = link_to '#', :title => 'This is an example of a standard post format' do
+                = image_tag("posts/img1-630x268.jpg", :class => 'img-responsive thumbnail thumbnail-sm', :title => 'This is an example of a standard post format')
+            %p Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.           
+
+      / END article.col-md-8
+      
+      %aside.sidebar-right.col-md-4.col-sm-4.clearfix.marg-bottom
+        %form
+          .form-group
+            .wrapper-input
+              %input.form-control{:type => 'text', :id => 'in-search-blog', :placeholder => 'Blog search', :class => 'input-sm'}
+              %i.fa.fa-search
+        %h6 Latest post
+        %ul.features-blog.list-unstyled
+          %li
+            .media
+              = link_to '#', :title => 'Title of the post', :class => 'pull-left' do
+                = image_tag("posts/img1-70x70.jpg", :class => 'img-responsive thumbnail thumbnail-sm')
+              .media-body
+                %h6= link_to 'Title of the post', '#'
+                %p Here we put the first few lines of the blog article.
+          %li
+            .media
+              = link_to '#', :title => 'Title of the post', :class => 'pull-left' do
+                = image_tag("posts/img1-70x70.jpg", :class => 'img-responsive thumbnail thumbnail-sm')
+              .media-body
+                %h6= link_to 'Title of the post', '#'
+                %p Here we put the first few lines of the blog article.
+          %li
+            .media
+              = link_to '#', :title => 'Title of the post', :class => 'pull-left' do
+                = image_tag("posts/img1-70x70.jpg", :class => 'img-responsive thumbnail thumbnail-sm')
+              .media-body
+                %h6= link_to 'Title of the post', '#'
+                %p Here we put the first few lines of the blog article.
+          %li
+            .media
+              = link_to '#', :title => 'Title of the post', :class => 'pull-left' do
+                = image_tag("posts/img1-70x70.jpg", :class => 'img-responsive thumbnail thumbnail-sm')
+              .media-body
+                %h6= link_to 'Title of the post', '#'
+                %p Here we put the first few lines of the blog article.
+          
+        %h6 Popular tags
+        %ul.list-tags.list-inline
+          %li= link_to 'Corporate', '#', :class => 'label label-primary'
+          %li= link_to 'Professional advice', '#', :class => 'label label-primary'
+          %li= link_to 'Lose weight', '#', :class => 'label label-primary'
+          %li= link_to 'Best gym in Berlin', '#', :class => 'label label-primary'
+          
+      / END aside.col-md-4
+                    
+  / END .container.well-white
+/ END .content-page
