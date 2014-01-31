@@ -1,0 +1,120 @@
+.content-page
+  %nav.subnav.container.lower
+    %ul.list-inline.list-links
+      %li.active= link_to 'About Us', '#'
+      %li= link_to 'Jobs', '#'
+      %li= link_to 'Contact', '#'
+  / END .subnav
+  
+  .well-orange
+    .container
+      .inner 
+        %div
+          %h1 
+            %span.logo-text fitogram 
+            %span - Weil Bewegung Leben ist     
+  / END .well-orange
+  
+  .well-blue
+    .container
+      .inner 
+        %h3.marg-bottom Bewegung macht Spaß, Bewegung hält gesund, Bewegung verbindet
+        %p.lead Unser Ziel ist es durch Individualität bei der Suche, Vielfalt bei der Auswahl und hohe Qualität bei den dargestellten Informationen Deinen persönlichen Zugang zum Thema “Bewegung” zu vereinfachen.     
+  / END .well-blue
+  
+  .wrapper-about
+    .container
+      .text-center
+        %p.lead.no-marg-bottom Unterschiedliche Menschen, unterschiedliche Lebensgeschichten, unterschiedliche Berufe, unterschiedliche Sportarten - aber eine treibende Kraft die alles verbindet:
+        %h2.text-primary Die Faszination für Bewegung
+      
+      .row.content-about
+        .col-sm-9.col-md-8
+          %ul.row.nav.list-unstyled
+            %li.active.col-sm-4
+              %figure.item-user.active{:href => '#christian', :data => {:toggle => 'tab'}}
+                .wrapper-img
+                  = image_tag("users/christian.png", :title => 'Christian', :width => 149, :height => 207)
+                  %span.bg-back
+                %figcaption
+                  %h6 Christian
+                  %p 20 years of tennis
+            %li.col-sm-4
+              %figure.item-user{:href => '#elvin', :data => {:toggle => 'tab'}}
+                .wrapper-img
+                  = image_tag("users/elvin.png", :title => 'Elvin', :width => 185, :height => 207)
+                  %span.bg-back
+                %figcaption
+                  %h6 Elvin
+                  %p Proud member of a gym for 2 years            
+            %li.col-sm-4
+              %figure.item-user{:href => '#francois', :data => {:toggle => 'tab'}}
+                .wrapper-img
+                  = image_tag("users/francois.png", :title => 'Francois', :width => 149, :height => 207)
+                  %span.bg-back
+                %figcaption
+                  %h6 Francois
+                  %p Run Marathon and Triathlon
+                  
+            %li.clearfix.hidden-xs
+            
+            %li.col-sm-4
+              %figure.item-user{:href => '#konstantin', :data => {:toggle => 'tab'}}
+                .wrapper-img
+                  = image_tag("users/konstantin.png", :title => 'Konstantin', :width => 149, :height => 207)
+                  %span.bg-back
+                %figcaption
+                  %h6 Konstantin
+                  %p 3 years of krav maga            
+            %li.col-sm-4
+              %figure.item-user{:href => '#max', :data => {:toggle => 'tab'}}
+                .wrapper-img
+                  = image_tag("users/max.png", :title => 'Max', :width => 149, :height => 207)
+                  %span.bg-back
+                %figcaption
+                  %h6 Max
+                  %p 10 years of basketball
+            %li.col-sm-4
+              %figure.item-user{:href => '#ruppi', :data => {:toggle => 'tab'}}
+                .wrapper-img
+                  = image_tag("users/ruppi.png", :title => 'Ruppi', :width => 149, :height => 207)
+                  %span.bg-back
+                %figcaption
+                  %h6 Ruppi
+                  %p 15 years of hockey
+                
+        .col-sm-3.col-md-4
+          .marg-left
+            .tab-content
+              #christian.tab-pane.fade.in.active
+                %h6.text-primary Christian Wingels
+                %p.spec Head of Data and Contents
+                %p.desc Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho
+              #elvin.tab-pane.fade
+                %h6.text-primary Christian Wingels 2
+                %p.spec Head of Data and Contents 2
+                %p.desc Christian graduated from Spoho, Christian Christian graduated from Spoho, Christian Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho
+              #francois.tab-pane.fade
+                %h6.text-primary Christian Wingels 3
+                %p.spec Head of Data and Contents 3
+                %p.desc Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho
+              #konstantin.tab-pane.fade
+                %h6.text-primary Christian Wingels 4
+                %p.spec Head of Data and Contents 4
+                %p.desc Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho
+              #max.tab-pane.fade
+                %h6.text-primary Christian Wingels 5
+                %p.spec Head of Data and Contents 5
+                %p.desc Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho
+              #ruppi.tab-pane.fade
+                %h6.text-primary Christian Wingels 6
+                %p.spec Head of Data and Contents 6
+                %p.desc Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho, Christian graduated from Spoho
+      
+      .text-center
+        %h2 Wir von fitogram wollen Menschen bewegen
+        .row
+          .col-md-4.col-sm-6.col-xs-12.col-centered
+            = link_to 'Check out our blog', '#', :class => 'btn btn-warning btn-shadow btn-block'
+  
+/ END .content-page
