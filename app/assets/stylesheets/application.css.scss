@@ -76,6 +76,8 @@ p { margin-bottom: 22px; }
     + .group-list { border-top: 1px solid $dropdown-divider-bg; margin-top: 3px; padding-top: 11px; }
     
     > ul, > .dropdown-header { margin: {left: -14px; right: -14px;} }
+    
+    .more { margin: {left: -14px; right: -14px;} }
   }
   
   .divider { margin: 3px 14px 11px; }
@@ -486,6 +488,10 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
     .form-group { float: none!important; width: 100%!important; }
     .form-control { display: block; width: 100%; }
     
+    
+  }
+  
+  .search-form, .wrapper-search-form {
     @media (min-width: $screen-md-min) { display: none; 
       + hr { display: none; }
     }

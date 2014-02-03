@@ -37,7 +37,7 @@
           %span Find
 
 - unless defined? without_form_tag
-  %form
+  %form.wrapper-search-form
     = yield :inner_contents
 - else
   = yield :inner_contents
