@@ -1,33 +1,33 @@
-%section.hero-unit.hero-small
-  .bg-radial
-  .container
-    .inner       
-      = render 'partials/search'
-  
-  .bg-bottom 
-  
-/ END .hero-unit.hero-small
-
-.content-page
-  .container
-  
-    .page-header
-      .media
-        %ol.breadcrumb.pull-right.no-marg-bottom
-          %li= link_to 'Home', '#'
-          %li= link_to 'Berlin', '#'
-          %li.active Marketplace
-                  
-        .marg-bottom.hidden-md.hidden-lg
-        
-        .media-body
-          %h4.no-marg-top.no-marg-bottom
-            “fitnessstudio”
-            %small in Berlin
-        
-    / END .page-header
+%form  
+  %section.hero-unit.hero-small
+    .bg-radial
+    .container
+      .inner       
+        = render 'partials/search', :without_form_tag => true
     
-    %form
+    .bg-bottom 
+    
+  / END .hero-unit.hero-small
+  
+  .content-page
+    .container
+    
+      .page-header
+        .media
+          %ol.breadcrumb.pull-right.no-marg-bottom
+            %li= link_to 'Home', '#'
+            %li= link_to 'Berlin', '#'
+            %li.active Marketplace
+                    
+          .marg-bottom.hidden-md.hidden-lg
+          
+          .media-body
+            %h4.no-marg-top.no-marg-bottom
+              “fitnessstudio”
+              %small in Berlin
+          
+      / END .page-header
+      
       .filters-n-map.row 
         .col-md-push-6.col-sm-push-4.col-sm-8.col-md-6
           .flex-video.thumbnail
@@ -443,365 +443,365 @@
                   reset all filters    
                   %i.fa.fa-times           
       / END #hidden-an-filters
-    / END form
-    
-    %hr.marg-top.marg-bottom
-    
-    %section.sort-by-unit
-      %ul.list-unstyled.list-inline
-        %li.sort-header sort by:
-        %li.active= link_to 'Ranking', '#'
-        %li= link_to 'Price', '#'  
-    / END .sort-by-unit
-    
-    .row
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Holmes Place Köln' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
-          %figcaption
-            %h4 
-              = link_to 'Holmes Place Köln', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li 
-                %i.fa.fa-star
-              %li 
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Fitness First Köln Ehrenfeld' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
-          %figcaption
-            %h4 
-              = link_to 'Holmes Place Köln', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-              %li 
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Holmes Place Köln' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
-          %figcaption
-            %h4 
-              = link_to 'Fitness First Köln Ehrenfeld', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
       
-      .clearfix.visible-sm   
+      %hr.marg-top.marg-bottom
       
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Holmes Place Köln' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
-          %figcaption
-            %h4 
-              = link_to 'Holmes Place Köln', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
+      %section.sort-by-unit
+        %ul.list-unstyled.list-inline
+          %li.sort-header sort by:
+          %li.active= link_to 'Ranking', '#'
+          %li= link_to 'Price', '#'  
+      / END .sort-by-unit
+      
+      .row
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Holmes Place Köln' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
+            %figcaption
+              %h4 
+                = link_to 'Holmes Place Köln', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li 
+                  %i.fa.fa-star
+                %li 
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Fitness First Köln Ehrenfeld' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
+            %figcaption
+              %h4 
+                = link_to 'Holmes Place Köln', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+                %li 
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Holmes Place Köln' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
+            %figcaption
+              %h4 
+                = link_to 'Fitness First Köln Ehrenfeld', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
         
-      .clearfix.hidden-sm.hidden-xs 
+        .clearfix.visible-sm   
+        
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Holmes Place Köln' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
+            %figcaption
+              %h4 
+                = link_to 'Holmes Place Köln', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
           
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Holmes Place Köln' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
-          %figcaption
-            %h4 
-              = link_to 'Holmes Place Köln', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li 
-                %i.fa.fa-star
-              %li 
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Fitness First Köln Ehrenfeld' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
-          %figcaption
-            %h4 
-              = link_to 'Holmes Place Köln', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-              %li 
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
+        .clearfix.hidden-sm.hidden-xs 
+            
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Holmes Place Köln' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
+            %figcaption
+              %h4 
+                = link_to 'Holmes Place Köln', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li 
+                  %i.fa.fa-star
+                %li 
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Fitness First Köln Ehrenfeld' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
+            %figcaption
+              %h4 
+                = link_to 'Holmes Place Köln', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+                %li 
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
+          
+        .clearfix.visible-sm 
         
-      .clearfix.visible-sm 
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Holmes Place Köln' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
+            %figcaption
+              %h4 
+                = link_to 'Fitness First Köln Ehrenfeld', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
+        .col-md-3.col-sm-4
+          %figure.item-place
+            = link_to '#', :title => 'Holmes Place Köln' do
+              = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
+            %figcaption
+              %h4 
+                = link_to 'Holmes Place Köln', '#'
+                %small
+                  = link_to 'fitness studio', '#'
+              %ul.rating.list-unstyled.list-inline.no-marg-bottom
+                %li.active 
+                  %i.fa.fa-star
+                %li.active
+                  %i.fa.fa-star
+                %li.active 
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+                %li.active  
+                  %i.fa.fa-star
+              %hr.no-marg-top
+              %h6.text-danger
+                .media
+                  %i.fa.flaticon-running.pull-left
+                  .media-body Activities
+              %ul.list-inline
+                %li Yoga
+                %li Pilates
+                %li Aerobic. Spinning
+                %li Zumba
+                %li=link_to '24 others', '#', :class => 'text-danger'  
+              %h6.text-primary
+                .media
+                  %i.fa.fa-calendar.pull-left
+                  .media-body Features
+              %ul.list-inline
+                %li Pool
+                %li Sauna
+                %li Spa
+                %li open 7/7
+                %li=link_to '3 others', '#', :class => 'text-primary'
+          / END .item-place
+      / END .row
       
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Holmes Place Köln' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Fitness First Köln Ehrenfeld')
-          %figcaption
-            %h4 
-              = link_to 'Fitness First Köln Ehrenfeld', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
-      .col-md-3.col-sm-4
-        %figure.item-place
-          = link_to '#', :title => 'Holmes Place Köln' do
-            = image_tag("places/img1-230x145.jpg", :class => 'img-responsive', :title => 'Holmes Place Köln')
-          %figcaption
-            %h4 
-              = link_to 'Holmes Place Köln', '#'
-              %small
-                = link_to 'fitness studio', '#'
-            %ul.rating.list-unstyled.list-inline.no-marg-bottom
-              %li.active 
-                %i.fa.fa-star
-              %li.active
-                %i.fa.fa-star
-              %li.active 
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-              %li.active  
-                %i.fa.fa-star
-            %hr.no-marg-top
-            %h6.text-danger
-              .media
-                %i.fa.flaticon-running.pull-left
-                .media-body Activities
-            %ul.list-inline
-              %li Yoga
-              %li Pilates
-              %li Aerobic. Spinning
-              %li Zumba
-              %li=link_to '24 others', '#', :class => 'text-danger'  
-            %h6.text-primary
-              .media
-                %i.fa.fa-calendar.pull-left
-                .media-body Features
-            %ul.list-inline
-              %li Pool
-              %li Sauna
-              %li Spa
-              %li open 7/7
-              %li=link_to '3 others', '#', :class => 'text-primary'
-        / END .item-place
-    / END .row
-    
-                  
-  / END .container
-/ END .content-page
+                    
+    / END .container
+  / END .content-page
+/ END %form

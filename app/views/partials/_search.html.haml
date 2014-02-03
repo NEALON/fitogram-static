@@ -1,36 +1,44 @@
-%form.search-form
-  .row-search
-    .form-group
-      %input.form-control{:type => 'text', :id => 'in-type', :placeholder => 'What are you looking for?', :autocomplete => 'off', :class => (defined? size) ? ((size == 'small') ? "input-sm" : ((size == 'large') ? "input-lg" : nil)) : nil}
-      / Status 2 (need ajax)
-      %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
-        %li.dropdown-header= link_to 'All Offers', '#'
-        %li.divider
-        %li.dropdown-header Popular Searches...
-        %li= link_to 'Yoga', '#'
-        %li= link_to 'Zumba', '#'
-        %li= link_to 'Pilates', '#'
-        %li= link_to 'fitnessstudio', '#'
-        %li= link_to 'sauna', '#'
-      / Status 3 (need ajax)
-      %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
-        %li.dropdown-header Popular Searches...
-        %li= link_to 'fitnessstudio', '#'
-        %li= link_to 'fitness Pump', '#'
-        %li= link_to 'fit body', '#'
-        %li= link_to 'fitness first', '#'
-        %li= link_to 'mcfit', '#'
-        %li.divider
-        %li.dropdown-header Providers
-        %li= link_to 'fitness first aachener str.', '#'
-        %li= link_to 'fitness first mozart str.', '#'
-        %li= link_to 'fitness first on rhein', '#'
-        %li= link_to 'fitness lady first mittelstr.', '#'
-        %li.more= link_to 'and 23 more...', '#'
-        
-    .form-group
-      %input.form-control{:type => 'text', :id => 'in-country', :placeholder => 'Where?', :autocomplete => 'off', :class => (defined? size) ? ((size == 'small') ? "input-sm" : ((size == 'large') ? "input-lg" : nil)) : nil}
-    .form-group
-      %button.btn.btn-block.btn-primary.lower{:class => (defined? size) ? ((size == 'small') ? "btn-sm" : ((size == 'large') ? "btn-lg" : nil)) : nil}
-        %i.fa.fa-search 
-        %span Find
+- content_for :inner_contents do
+  .search-form
+    .row-search
+      .form-group
+        %input.form-control{:type => 'text', :id => 'in-type', :placeholder => 'What are you looking for?', :autocomplete => 'off', :class => (defined? size) ? ((size == 'small') ? "input-sm" : ((size == 'large') ? "input-lg" : nil)) : nil}
+        / Status 2 (need ajax)
+        %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
+          %li.dropdown-header= link_to 'All Offers', '#'
+          %li.divider
+          %li.dropdown-header Popular Searches...
+          %li= link_to 'Yoga', '#'
+          %li= link_to 'Zumba', '#'
+          %li= link_to 'Pilates', '#'
+          %li= link_to 'fitnessstudio', '#'
+          %li= link_to 'sauna', '#'
+        / Status 3 (need ajax)
+        %ul.dropdown-menu{:role => 'menu', 'aria-labelledby' => 'type-dropbown'}
+          %li.dropdown-header Popular Searches...
+          %li= link_to 'fitnessstudio', '#'
+          %li= link_to 'fitness Pump', '#'
+          %li= link_to 'fit body', '#'
+          %li= link_to 'fitness first', '#'
+          %li= link_to 'mcfit', '#'
+          %li.divider
+          %li.dropdown-header Providers
+          %li= link_to 'fitness first aachener str.', '#'
+          %li= link_to 'fitness first mozart str.', '#'
+          %li= link_to 'fitness first on rhein', '#'
+          %li= link_to 'fitness lady first mittelstr.', '#'
+          %li.more= link_to 'and 23 more...', '#'
+          
+      .form-group
+        %input.form-control{:type => 'text', :id => 'in-country', :placeholder => 'Where?', :autocomplete => 'off', :class => (defined? size) ? ((size == 'small') ? "input-sm" : ((size == 'large') ? "input-lg" : nil)) : nil}
+      .form-group
+        %button.btn.btn-block.btn-primary.lower{:class => (defined? size) ? ((size == 'small') ? "btn-sm" : ((size == 'large') ? "btn-lg" : nil)) : nil}
+          %i.fa.fa-search 
+          %span Find
+
+- unless defined? without_form_tag
+  %form
+    = yield :inner_contents
+- else
+  = yield :inner_contents
+  

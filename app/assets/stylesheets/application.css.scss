@@ -574,7 +574,7 @@ $min-height-content-page: 650px;
   
   &:after { @include box-shadow(#{inset 10px 2px 15px -15px rgba($black, .3)}); content: ""; display: none; height: 100%; left: 0; position: absolute; right: 0; top: 0; @include transition(#{none}); z-index: $zindex-navbar-fixed - 1; }
     
-  > .content-page { background: $body-bg; @include gradient-vertical-three-colors(#f8f8f8, #f9decb, 70%, #cb978a); margin-bottom: -#{$footer-top + 50px}; min-height: $min-height-content-page; overflow: hidden; padding: {bottom: $footer-top + 50px; top: $top-pad-content-page;} position: relative; @include clearfix; 
+  .content-page { background: $body-bg; @include gradient-vertical-three-colors(#f8f8f8, #f9decb, 70%, #cb978a); margin-bottom: -#{$footer-top + 50px}; min-height: $min-height-content-page; overflow: hidden; padding: {bottom: $footer-top + 50px; top: $top-pad-content-page;} position: relative; @include clearfix; 
     &.home-content { background: none $body-bg; @include reset-filter; }
     
     > .well-white { background: $white; @include box-shadow(#{0 5px 20px rgba($black, .08)}); color: $gray-dark; margin: {top: -$top-pad-content-page; left: ($grid-gutter-width / 2); right: ($grid-gutter-width / 2);} min-height: $min-height-content-page; padding: {top: 35px; bottom: 30px;} 
@@ -979,7 +979,7 @@ article > .marg-right { margin-right: 0!important;
 /**
  * Item Place  
  */ 
-.item-place { @extend .thumbnail; color: $gray-dark; font-size: 12px; margin: 0 auto 25px; max-width: 230px;
+.item-place { @extend .thumbnail; color: $gray-dark; font-size: 12px; margin: 0 auto 25px; max-width: 230px; min-height: 410px;
   > a { display: block; position: relative;
     img { border-radius: $thumbnail-border-radius $thumbnail-border-radius 0 0; }
     &:after { border-radius: $thumbnail-border-radius $thumbnail-border-radius 0 0; content: ''; display: block; height: 100%; left: 0; position: absolute; right: 0; top: 0; @include transition(#{all .3s}); z-index: 1; }
