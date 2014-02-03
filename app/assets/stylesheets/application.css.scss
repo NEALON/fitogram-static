@@ -1085,7 +1085,7 @@ article > .marg-right { margin-right: 0!important;
     .inner { width: auto; }
   }
   
-  .thumbnail { @include box-shadow(#{3px 3px 5px -2px rgba($black, 0.35)}); }
+  .thumbnail { @include box-shadow(#{3px 3px 5px -2px rgba($black, 0.35)}); max: {height: 63px; width: 63px;} }
   
   // Active Slideshow
   &.active-slideshow {
