@@ -1,4 +1,4 @@
-%form  
+%form{:action => '', :method => 'get'}  
   %section.hero-unit.hero-small
     .bg-radial
     .container
@@ -38,7 +38,7 @@
               %h4.text-warning.no-marg-top
                 .media
                   %i.glyphicon.glyphicon-home.ico-provider.ico-orange.ico-circle.pull-left
-                  .media-body 37 provider
+                  .media-body 37 provider              
               .filter-list.marg-top
                 .checkbox
                   %label
@@ -55,42 +55,14 @@
                     %input{:type => 'checkbox'}
                     premium studio
                     %strong.text-warning 4
-                #more-filters-provider
+                -# How to use modals inside form
+                .checkbox.small
+                  =link_to 'show 6 more', '#', :class => 'text-warning', :data => {:toggle => 'modal', :target => '#modal-filters', :remote => '/modals/more_filters_providers.html'}
+                    
+                -# How to use modals inside body (outside of content page)
                   .checkbox.small
-                    =link_to 'show 6 more', '#', :class => 'text-warning', :data => {:toggle => 'show-hide', :show => '#hidden-filters-provider', :hide => '#more-filters-provider'}
-                #hidden-filters-provider.hidden
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      fitnessstudio
-                      %strong.text-warning 20
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      low cost studio
-                      %strong.text-warning 7
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      premium studio
-                      %strong.text-warning 4
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      fitnessstudio
-                      %strong.text-warning 20
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      low cost studio
-                      %strong.text-warning 7
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      premium studio
-                      %strong.text-warning 4
-                  .checkbox.small
-                    =link_to 'less', '#', :class => 'text-warning', :data => {:toggle => 'show-hide', :hide => '#hidden-filters-provider', :show => '#more-filters-provider'}
+                    =link_to 'show 6 more', '#', :class => 'text-warning', :data => {:toggle => 'modal', :target => '#modal', :remote => '/modals/more_filters_providers.html'}
+                
             .col-md-6.marg-bottom
               %h4.text-danger.no-marg-top
                 .media
@@ -101,69 +73,20 @@
                   %label
                     %input{:type => 'checkbox'}
                     Yoga
-                    %strong.text-warning 13
+                    %strong.text-danger 13
                 .checkbox
                   %label
                     %input{:type => 'checkbox'}
                     Pilates
-                    %strong.text-warning 20
+                    %strong.text-danger 20
                 .checkbox
                   %label
                     %input{:type => 'checkbox'}
                     Zumba
-                    %strong.text-warning 4
-                #more-filters-activity
-                  .checkbox.small
-                    =link_to 'show 9 more', '#', :class => 'text-danger', :data => {:toggle => 'show-hide', :show => '#hidden-filters-activity', :hide => '#more-filters-activity'}
-                #hidden-filters-activity.hidden
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Yoga
-                      %strong.text-warning 13
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Pilates
-                      %strong.text-warning 20
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Zumba
-                      %strong.text-warning 4
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Yoga
-                      %strong.text-warning 13
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Pilates
-                      %strong.text-warning 20
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Zumba
-                      %strong.text-warning 4
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Yoga
-                      %strong.text-warning 13
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Pilates
-                      %strong.text-warning 20
-                  .checkbox
-                    %label
-                      %input{:type => 'checkbox'}
-                      Zumba
-                      %strong.text-warning 4
-                  .checkbox.small
-                    =link_to 'less', '#', :class => 'text-danger', :data => {:toggle => 'show-hide', :hide => '#hidden-filters-activity', :show => '#more-filters-activity'}
-                  
+                    %strong.text-danger 4
+                .checkbox.small
+                  =link_to 'show 9 more', '#', :class => 'text-danger', :data => {:toggle => 'modal', :target => '#modal-filters', :remote => '/modals/more_filters_activities.html'}
+                
           / END .row
           
           .wrapper-price-range
@@ -804,4 +727,7 @@
                     
     / END .container
   / END .content-page
+  
+  #modal-filters.modal.fade{:tabindex => "-1", :role => "dialog", :aria => {:labelledby => "myLargeModalLabel", :hidden => "true"}}
+  
 / END %form

@@ -272,6 +272,39 @@ $navbar-default-link-hover-color:          $blue;
 $nav-link-padding:  7px 20px;
 
 
+//== Modals
+//
+//##
+
+//** Padding applied to the modal body
+$modal-inner-padding:         #{10px 20px};
+
+//** Padding applied to the modal title
+$modal-title-padding:         20px;
+//** Modal title line-height
+$modal-title-line-height:     $line-height-base !default;
+
+//** Background color of modal content area
+$modal-content-bg:                             $white;
+//** Modal content border color
+$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+//** Modal content border color **for IE8**
+$modal-content-fallback-border-color:          #999 !default;
+
+//** Modal backdrop background color
+$modal-backdrop-bg:           $black;
+//** Modal backdrop opacity
+$modal-backdrop-opacity:      .7;
+//** Modal header border color
+$modal-header-border-color:   #e5e5e5 !default;
+//** Modal footer border color
+$modal-footer-border-color:   $modal-header-border-color !default;
+
+$modal-lg:                    900px;
+$modal-md:                    655px;
+$modal-sm:                    300px;
+
+
 // Grid system
 // --------------------------------------------------
 

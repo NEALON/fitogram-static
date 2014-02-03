@@ -1,0 +1,118 @@
+.modal-dialog
+  .modal-content 
+    .modal-header
+      = link_to '#', :class => 'close close-circle', :title => 'Close', :data => {:dismiss => "modal"}, "aria-hidden" => "true" do
+        &times;
+      %h4.text-danger.no-marg-top.no-marg-bottom
+        .media
+          %i.fa.flaticon-running.ico-circle.ico-red.ico-lg.pull-left
+          .media-body More activities 
+    .modal-body
+      .row
+        .col-sm-6
+          .filter-list
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Yoga
+                %strong.text-danger 20
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Pilates
+                %strong.text-danger 7
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Zumba
+                %strong.text-danger 4
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Bodypump
+                %strong.text-danger 20
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Crossfit
+                %strong.text-danger 7
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Zumba
+                %strong.text-danger 4
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Yoga
+                %strong.text-danger 20
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Pilates
+                %strong.text-danger 7
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                BodyPump
+                %strong.text-danger 4
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Crossfit
+                %strong.text-danger 4            
+        .col-sm-6
+          .filter-list
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Yoga
+                %strong.text-danger 20
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Pilates
+                %strong.text-danger 7
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Zumba
+                %strong.text-danger 4
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Bodypump
+                %strong.text-danger 20
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Crossfit
+                %strong.text-danger 7
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Zumba
+                %strong.text-danger 4
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Yoga
+                %strong.text-danger 20
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Pilates
+                %strong.text-danger 7
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                BodyPump
+                %strong.text-danger 4
+            .checkbox
+              %label
+                %input{:type => 'checkbox'}
+                Crossfit
+                %strong.text-danger 4  
+    .modal-footer
+      %button.btn.btn-primary.btn-shadow{:type => 'submit'} find
+      %button.btn.btn-link{:type => "button", :data => {:dismiss => "modal"}, :aria => {:hidden => "true"}} cancel

@@ -123,6 +123,11 @@ $(document).ready ->
 		}
 		height: 685
 	}
+	
+	# Refresh Modal Conent (when using remote)
+	$('body').on 'hidden.bs.modal', '.modal', (e) ->
+	  $(this).removeData 'bs.modal'
+
 
 
 	
