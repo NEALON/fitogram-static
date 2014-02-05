@@ -72,27 +72,13 @@ p { margin-bottom: 22px; }
     }  
   }
   
-  .group-list { margin: {left: 14px; right: 14px;}
-    + .group-list { border-top: 1px solid $dropdown-divider-bg; margin-top: 3px; padding-top: 11px; }
-    
-    > ul, > .dropdown-header { margin: {left: -14px; right: -14px;} }
-    
-    .more { margin: {left: -14px; right: -14px;} }
-  }
-  
   .divider { margin: 3px 14px 11px; }
   
-  .more { font-size: 14px;
-    a { color: $blue; text-decoration: underline;
-      &:hover, &:focus { background: none; color: $blue; text-decoration: none; }
-    }
-  }
-  
-  li a { color: $dropdown-link-color; clear: both; display: block; font-weight: normal; line-height: $line-height-base; margin: {left: 1px; right: 1px;} padding: 3px 19px; white-space: nowrap; 
+  li a, .tt-suggestion a { color: $dropdown-link-color; clear: both; display: block; font-weight: normal; line-height: 1.1; margin: {left: 1px; right: 1px;} padding: 6px 19px; white-space: nowrap; 
     &:hover, &:focus { text-decoration: none; color: $dropdown-link-hover-color; background-color: $dropdown-link-hover-bg; }
   }
   
-  .active > a {
+  .active > a, .tt-cursor > a {
     &,
     &:hover,
     &:focus {
@@ -100,6 +86,12 @@ p { margin-bottom: 22px; }
       text-decoration: none;
       outline: 0;
       background-color: $dropdown-link-active-bg;
+    }
+  }
+  
+  .more { font-size: 14px; 
+    a { color: $blue; display: block; font-weight: normal; line-height: 1.1; margin: {left: 1px; right: 1px;} padding: 6px 19px; text-decoration: underline; white-space: nowrap; 
+      &:hover, &:focus { background: none; color: $blue; text-decoration: none; }
     }
   }
   
@@ -374,8 +366,35 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
 }
 
 // Styles for Typeahead
+.twitter-typeahead { @extend .dropdown; }
+
+.tt-dropdown-menu { @extend .dropdown-menu; left: 0!important; position: absolute!important; right: auto!important; top: 100%!important; z-index: $zindex-dropdown!important; 
+  [class^="tt-dataset-"], [class*=" tt-dataset-"] { margin: {left: 14px; right: 14px;}
+    + [class^="tt-dataset-"], + [class*=" tt-dataset-"] { border-top: 1px solid $dropdown-divider-bg; margin-top: 3px; padding-top: 11px; }
+    
+    > .tt-suggestions, > .dropdown-header { margin: {left: -14px; right: -14px;} }
+    
+    // Links within the dropdown menu
+    > li > a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: normal;
+      line-height: $line-height-base;
+      color: $dropdown-link-color;
+      white-space: nowrap; // prevent links from randomly breaking onto new lines
+    }
+    
+    .more { margin: {left: -14px; right: -14px;} }
+  }
+}
+
+.tt-input { background-color: $input-bg!important; vertical-align: inherit!important; }
+
 .twitter-typeahead { display: block!important; }
+
 .tt-hint { display: none!important; }
+
 .tt-query { background-color: $input-bg!important; vertical-align: inherit!important; }
 
 // Wrapper Input with Icon
@@ -486,9 +505,7 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
   
   .search-form { padding-top: 15px;
     .form-group { float: none!important; width: 100%!important; }
-    .form-control { display: block; width: 100%; }
-    
-    
+    .form-control { display: block; width: 100%; } 
   }
   
   .search-form, .wrapper-search-form {

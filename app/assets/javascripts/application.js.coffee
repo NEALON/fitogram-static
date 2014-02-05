@@ -31,7 +31,7 @@
 #= require libs/idangerous.swiper-2.4
 #
 #= require libs/handlebars-v1.3.0
-#= require libs/typeahead.bundle
+#= require libs/typeahead.bundle.min
 
 $(document).ready ->
 	# Init Tooltip
@@ -84,7 +84,7 @@ $(document).ready ->
 	  slide: (event, ui) ->
 	    #do
 	  
-	# Init typeahead for Search Form	
+	# Init typeahead for Search Form		
 	countries = new Bloodhound(
 	  datumTokenizer: (d) ->
 	    Bloodhound.tokenizers.whitespace d.name
@@ -106,7 +106,7 @@ $(document).ready ->
 			header: '<div class="dropdown-header">Popular Searches...</div>'
 			suggestion: Handlebars.compile('<a href="javascript:void(0);">{{name}}</a>')
 			# Just as an example.. You can add a condition and possibly get what we need...
-			footer: '<li class="more"><a href="#">and 9 more...</li>'
+			footer: '<div class="more"><a href="#">and 9 more...</a></div>'
 	,
 		name: "providers"
 		displayKey: "name"
@@ -121,6 +121,7 @@ $(document).ready ->
 		source: countries.ttAdapter()
 		templates:
 			suggestion: Handlebars.compile('<a href="javascript:void(0);">{{name}}</a>')
+			
 	
 	# Init Provider Calendar
 	$("#provider-calendar").fullCalendar {
