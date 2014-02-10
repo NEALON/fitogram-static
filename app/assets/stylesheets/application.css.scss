@@ -1133,9 +1133,8 @@ article > .marg-right { margin-right: 0!important;
   .wrapper-map { margin-top: 28px; 
     .bottom-info { margin-top: -6px;
       .fa-map-marker { color: $blue; font-size: 41px; }
-      .media { margin-top: 3px;
-        .small { margin-top: -4px; }
-      }
+      .media { margin-top: 3px; }
+      .strong { line-height: 1.0; margin-top: 4px; }
     }
   }
 }
@@ -1591,6 +1590,8 @@ article > .marg-right { margin-right: 0!important;
 .text-center-sm { text-align: center; 
   @media (min-width: $screen-md-min) { text-align: inherit; }
 }
+
+.strong { font-weight: bold; }
 
 .nowrap { white-space: nowrap!important; }
 
