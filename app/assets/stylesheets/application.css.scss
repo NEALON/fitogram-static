@@ -889,7 +889,7 @@ article > .marg-right { margin-right: 0!important;
 /**
  * Keep in touch
  */
-.keep-in-touch { background: image-url('keep-in-touch.jpg') center center #e5e5e5; background-size: cover; margin: {bottom: -($footer-top + 50px); top: 50px;} overflow: hidden; padding: {bottom: 100px; top: 60px;} position: relative; text-align: center; z-index: 1;
+.keep-in-touch { background: image-url('keep-in-touch.jpg') center center #e5e5e5; background-size: cover; margin: {bottom: -($footer-top + 50px); top: 50px;} overflow: hidden; padding: {bottom: 195px; top: 80px;} position: relative; text-align: center; z-index: 1;
   .media { margin-top: -5px;
     .media-body { padding: 5px; }
     .pull-right { margin:{top: 5px; bottom: 5px;} }
@@ -921,7 +921,7 @@ article > .marg-right { margin-right: 0!important;
     &:before { background: #cfcfcf; @include rotate(3.5deg); margin-bottom: -2.5%; }
   }
   
-  @media (min-width: $screen-md-min) {  padding: {bottom: 150px; top: 150px;}
+  @media (min-width: $screen-md-min) {  padding-top: 150px;
     .bg-top {
       &:after { @include rotate(-1deg); }
       &:before { @include rotate(2.5deg); }
