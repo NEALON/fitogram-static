@@ -1028,7 +1028,9 @@ article > .marg-right { margin-right: 0!important;
     
     + .list-inline { 
       > li { padding: {left: 0; right: 0;} 
-        + li:before { content: ', '; margin-left: -2px; }
+        &:after { content: ', '; margin-right: 2px; }
+        &:last-child:after { display: none; }
+        &.last:after { display: none; }
       }
     }
   }
