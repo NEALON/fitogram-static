@@ -18,7 +18,6 @@
 @import "mixins";
 
 @import "jquery.ui.all";
-@import "fullcalendar";
 @import "libs/idangerous.swiper";
 
 
@@ -127,8 +126,6 @@ p { margin-bottom: 22px; }
 /* ==========================================================================
    Tables
    ========================================================================== */
-
-.table-responsive { border: 0 none; }
 
 
 /* ==========================================================================
@@ -575,7 +572,7 @@ input[type="radio"], input[type="checkbox"] { margin-top: 5px; }
     .ico-circle { color: #f55f4d; }
   } 
   
-  .ico-circle { background: $white; border-radius: $border-radius-base; @include box-shadow(#{inset 0 2px 3px rgba($black, .3)}); color: $gray; @include inline-block; float: left; height: 25px; line-height: 25px; margin-top: 5px; width: 25px; }
+  .ico-circle { background: $white; border-radius: $border-radius-base; @include box-shadow(#{inset 0 2px 3px rgba($black, .3)}); color: $gray; @include inline-block; font-size: 16px; float: left; height: 25px; line-height: 28px; margin-top: 5px; width: 25px!important; }
   
   &:hover, &:focus { color: $white; }
   
@@ -1063,7 +1060,7 @@ article > .marg-right { margin-right: 0!important;
 
 // Provider Cover
 .provider-cover { margin: (-30px) (-$grid-gutter-width / 2) 24px; position: relative;
-  img { margin: {left: auto; right: auto;} }
+  img { margin: {left: auto; right: auto;} width: 100%; }
   
   .overlay { @include box-sizing(#{border-box}); padding: {left: ($grid-gutter-width / 2); right: ($grid-gutter-width / 2);} 
     h4 { font-size: 18px; margin-bottom: -4px; } 
@@ -1087,25 +1084,31 @@ article > .marg-right { margin-right: 0!important;
 }
 
 // Provider Top Info (Picture and Gallery Images)
-.provider-top-info {  
-  @media (min-width: $screen-sm-min) {
-    > img { margin: {top: (-175px + 63px); right: 23px;} width: 175px; }
+.provider-top-info { line-height: 0; position: relative;
+  img { margin: 0; }
+  
+  > img { margin-bottom: 25px; }
+  
+  @media (min-width: $screen-sm-min) { padding-left: 175px + 23px;
+    > img { bottom: 3px; left: 0; margin-bottom: 0; width: 175px; position: absolute; }
   }
   
-  @media (min-width: $screen-lg-min) {
-    > img { margin-top: (-230px + 63px); width: 230px; }
+  @media (min-width: $screen-lg-min) { padding-left: 230px + 23px;
+    > img { bottom: 3px; left: 0; margin-bottom: 0; width: 230px; position: absolute; }
   }
 }
 
 // Provider Gallery Slider
-.provider-gallery-slider { @include inline-block; padding-right: 20px; overflow: hidden; position: relative;
-  .next-slide { color: $gray-light; display: none; font-size: 40px; line-height: 70px; position: absolute; right: 0; top: 0; z-index: 2;
+.provider-gallery-slider { @include inline-block; min-height: 24px; padding-right: 20px; overflow: hidden; position: relative;
+  .next-slide { color: $gray-light; display: none; font-size: 40px; line-height: 0; margin-top: -21px; position: absolute; right: 0; top: 50%; z-index: 2;
     &:hover, &:focus { color: $blue; }
   }
   
+  img { margin: 0; }
+  
   .swiper-slide { width: 79px; }
   
-  .swiper-container { height: 70px; margin: 0; width: 316px; }
+  .swiper-container { max-height: 70px; margin: 0; padding-bottom: 3px; width: 316px; }
   
   .inner { overflow: hidden; position: relative; width: 237px; @include clearfix; }
   
@@ -1148,6 +1151,66 @@ article > .marg-right { margin-right: 0!important;
   }
   .bottom-info {
     h6 { font-size: 18px; margin: {top: 20px; bottom: 10px;} }
+  }
+}
+
+// Provider Calendar
+.provider-calendar {
+  .top-info { text-align: center;
+    h6 { @include inline-block; margin: {bottom: 39px; top: 4px;} padding: 0 85px; position: relative; 
+      .btn { margin: -15px 0 0; min-width: 64px; position: absolute; top: 50%; }
+      .btn-prev { left: 0; }
+      .btn-next { right: 0; }
+    }
+   
+    @media (min-width: $screen-sm-min) {
+      h6 { font-size: 18px; }
+    }
+  }
+  
+  .table { color: $gray-dark; font-size: 12px;
+    time { display: block; margin-top: 1px; }
+    
+    th { font: {family: $font-family-serif; weight: normal;} text-align: center; }
+        
+    > thead > tr > th, > thead > tr > td, > tbody > tr > th, > tbody > tr > td, > tfoot > tr > th, > tfoot > tr > td { border-color: #eaeaea; line-height: 1.3; padding: 4px 7px 3px; }
+    
+    > thead > tr > th { border-bottom: 0 none; color: $gray-light; padding: 11px 7px; 
+      &.cur-day { color: $blue; font-weight: bold; }
+    }
+    
+    > tbody > tr > th { background-color: transparent!important; padding: {top: 13px; bottom: 17px;} 
+      .fa { display: block; min-height: 29px; }
+      
+      .flaticon-cup { font-size: 26px; }
+      .flaticon-spoon { font-size: 27px; }
+      .flaticon-bitten { font-size: 28px; }
+      .flaticon-wine { font-size: 22px; }
+    }
+    
+    > tbody > tr.first > td, > tbody > tr.first > th { border-top: 2px solid #d3d3d3; }
+    
+    > tbody > tr.last > td { padding-bottom: 29px; }
+    
+    tr > td, tr > th { 
+      + td, + th { border-left: 1px solid $table-border-color; }
+      
+      @media (min-width: $screen-sm-min) { border-right: 1px solid $table-border-color; 
+        + td, + th { border-left: 0 none; }
+      }
+    }
+    
+    > tfoot > tr > td { border-top: 2px solid #d3d3d3; padding: {top: 5px; bottom: 5px;} }
+    
+    .cur-day { background: #f9f9f9; }
+    
+    .selected { background: $blue!important; color: $white!important; }
+    
+    &.table-hover {
+      > tbody > tr:hover > td, > tbody > tr:hover > th { background-color: $table-bg-hover; }
+    } 
+    
+    @media (min-width: $screen-sm-min) { table-layout: fixed; }
   }
 }
 
@@ -1408,42 +1471,6 @@ article > .marg-right { margin-right: 0!important;
 
 
 /* ==========================================================================
-   Full Calendar Styles
-   ========================================================================== */
-
-.fc-header {
-  .fc-header-left, .fc-header-right { display: none; }
-  .fc-header-title h2 { @extend h6; margin: 4px 0 0; }
-  .fc-header-space { padding-left: 17px; }
-  .fc-button { margin-bottom: 0; }
-}
-
-.fc-content { margin-top: 42px; }
-
-.fc-button { @extend .btn; @extend .btn-shadow; @extend .btn-primary; @extend .btn-xs; border-radius: 50px!important; color: $white; height: auto; min-width: 65px; text-shadow: none; }
-
-.fc-widget-header, .fc-widget-content { border-color: lighten($gray-lighter, 10%); }
-
-.fc-state-highlight { background: #f9f9f9; } 
-
-.fc-border-separate tr.fc-last th, .fc-border-separate tr.fc-last td { border-bottom-width: 2px; border-bottom-color: #d3d3d3; }
-
-.fc-border-separate {
-  th, td { border-width: 1px 1px 0 0; }
-  thead tr.fc-first th { border-top: 0 none!important; color: $gray-light; font: {family: $font-family-serif; weight: normal;} padding: 6px 0; }
-  th.fc-last, td.fc-last { border-right: 0 none!important; }
-}
-
-.fc-minor > th, .fc-minor > td { border-bottom: 1px solid #d3d3d3!important; }
-
-.fc-agenda { color: $gray-dark; font: {family: $font-family-sans-serif; size: 12px;}
-  .fc-agenda-axis { border-left: 0 none!important; }
-}
-
-.fc-agenda-slots tr.fc-minor th, .fc-agenda-slots tr.fc-minor td { border-top: {style: solid; color: #f3f3f3;} }
-
-
-/* ==========================================================================
    Footer Styles
    ========================================================================== */
 
@@ -1513,11 +1540,15 @@ article > .marg-right { margin-right: 0!important;
   font-style: normal;
 }
 
-.flaticon-running:before { content: "\e003"; }
 .flaticon-24hour:before { content: "\e000"; }
-.flaticon-euro:before { content: "\e002"; }
-.flaticon-shake:before { content: "\e004"; }
-.flaticon-calendar:before { content: "\e001"; }
+.flaticon-bitten:before { content: "\e001"; }
+.flaticon-calendar:before { content: "\e002"; }
+.flaticon-cup:before { content: "\e003"; }
+.flaticon-euro:before { content: "\e004"; }
+.flaticon-running:before { content: "\e005"; }
+.flaticon-shake:before { content: "\e006"; }
+.flaticon-spoon:before { content: "\e007"; }
+.flaticon-wine:before { content: "\e008"; }
 
 // Icon Circle
 .ico-circle { background: $gray-dark; border-radius: 40px; color: $white; font-size: 20px; height: 40px; line-height: 40px; overflow: hidden; text-align: center; width: 40px!important; 

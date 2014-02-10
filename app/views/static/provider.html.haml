@@ -15,7 +15,7 @@
       .row
         %article.col-md-8.marg-bottom
           .marg-right
-            .provider-top-info
+            .provider-top-info.clearfix
               = image_tag("providers/img2-231x231.jpg", :class => 'img-responsive pull-left thumbnail', :title => 'McFit Köln Bonner Straße')
               .clearfix.visible-xs
               .media-body
@@ -267,12 +267,199 @@
               .media-body Detailed Calendar
       .row
         .col-md-9
-          #provider-calendar  
+          .provider-calendar
+            .top-info
+              %h6 
+                13 - 19 January 2014
+                %button.btn-prev.btn.btn-xs.btn-primary.btn-shadow{:type => 'button'} prev
+                %button.btn-next.btn.btn-xs.btn-primary.btn-shadow{:type => 'button'} next
+            .table-responsive
+              %table.table.table-hover
+                %thead
+                  %tr
+                    %th
+                    %th Monday
+                    %th.cur-day Tuesday
+                    %th Wednesday
+                    %th Thursday
+                    %th Friday
+                    %th Saturday
+                    %th Sunday
+                %tbody
+                  %tr.first
+                    %th{:rowspan => '3'} 
+                      %i.fa.flaticon-cup
+                      %div Morning
+                    %td.selected
+                      .strong Yoga 1
+                      %time 08:00 - 09:00
+                      %div room 2
+                    %td.cur-day.selected
+                      .strong Yoga 2
+                      %time 08:00 - 09:00
+                      %div room 2
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td
+                  %tr
+                    %td
+                      .strong Pilates
+                      %time 08:00 - 09:00
+                      %div room 1
+                    %td.cur-day
+                      .strong Spinning 3
+                      %time 08:00 - 09:00
+                      %div room 1
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td
+                  %tr.last
+                    %td
+                      .strong Zumba
+                      %time 08:00 - 09:00
+                      %div room 3
+                    %td.cur-day
+                      .strong Body Pump
+                      %time 08:00 - 09:00
+                      %div room 3
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td
+                  -# END Morning 
+                  %tr.first
+                    %th{:rowspan => '3'} 
+                      %i.fa.flaticon-spoon
+                      %div Lunch time
+                    %td.selected
+                      .strong Yoga 1
+                      %time 12:00 - 13:00
+                      %div room 2
+                    %td.cur-day
+                    %td.selected
+                      .strong Yoga 2
+                      %time 12:00 - 13:00
+                      %div room 2
+                    %td
+                    %td
+                    %td
+                    %td
+                  %tr
+                    %td
+                    %td.cur-day
+                    %td
+                      .strong Spinning 3
+                      %time 12:00 - 13:00
+                      %div room 1  
+                    %td
+                    %td
+                    %td
+                    %td
+                  %tr.last
+                    %td
+                      .strong Zumba
+                      %time 12:00 - 13:00
+                      %div room 3
+                    %td.cur-day
+                    %td
+                      .strong Body Pump
+                      %time 12:00 - 13:00
+                      %div room 3
+                    %td
+                    %td
+                    %td
+                    %td
+                  -# END Lunch time 
+                  %tr.first.last
+                    %th 
+                      %i.fa.flaticon-bitten
+                      %div Afternoon
+                    %td
+                      .strong Spinning 3
+                      %time 15:00 - 16:00
+                      %div room 1
+                    %td.cur-day
+                    %td
+                      .strong Spinning 3
+                      %time 15:00 - 16:00
+                      %div room 1
+                    %td
+                    %td
+                    %td
+                      .strong Body Pump
+                      %time 15:00 - 16:00
+                      %div room 1
+                    %td
+                      .strong Body Pump
+                      %time 15:00 - 16:00
+                      %div room 1
+                  -# END Afternoon
+                  %tr.first
+                    %th{:rowspan => '3'} 
+                      %i.fa.flaticon-wine
+                      %div Evening
+                    %td.selected
+                      .strong Yoga 1
+                      %time 19:00 - 20:00
+                      %div room 2
+                    %td.cur-day.selected
+                      .strong Yoga 2
+                      %time 19:00 - 20:00
+                      %div room 2
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td
+                  %tr
+                    %td
+                      .strong Pilates
+                      %time 19:00 - 20:00
+                      %div room 1
+                    %td.cur-day
+                      .strong Body Pump
+                      %time 19:30 - 20:30
+                      %div room 3
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td 
+                  %tr.last
+                    %td
+                      .strong Zumba
+                      %time 19:30 - 20:30
+                      %div room 3
+                    %td.cur-day
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td 
+                  -# END Evening 
+                / END tbody
+                %tfoot
+                  %tr
+                    %td
+                    %td
+                    %td.cur-day
+                    %td
+                    %td
+                    %td
+                    %td
+                    %td              
+          / END .provider-calendar 
+                    
         .filter-calendar-sidebar.col-md-3
           .dropdown
             %button.btn.btn-default.btn-sm.btn-shadow.dropdown-toggle.btn-block{:type => 'button', :data => {:toggle => 'dropdown'}}
-              Yoga
               %span.caret
+              Yoga
             %ul.dropdown-menu{:role => 'menu'}
               %li= link_to 'Bodypump', '#'
               %li.active= link_to 'Yoga', '#'

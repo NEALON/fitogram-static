@@ -16,7 +16,6 @@
 #= require turbolinks
 #= require bootstrap
 #= require jquery_nested_form
-#= require fullcalendar.min
 #= require jquery.ui.draggable
 #= require jquery.ui.resizable
 #= require jquery.ui.datepicker
@@ -69,6 +68,7 @@ $(document).ready ->
 	    resizeReInit: true
 	    grabCursor: true
 	    centeredSlides: false
+	    calculateHeight: true
 	  )
 	
 	$('body').on 'click', '#provider-gallery .next-slide', (e) ->
@@ -122,29 +122,6 @@ $(document).ready ->
 		templates:
 			suggestion: Handlebars.compile('<a href="javascript:void(0);">{{name}}</a>')
 			
-	
-	# Init Provider Calendar
-	$("#provider-calendar").fullCalendar {
-		firstDay: 1
-		defaultView: 'agendaWeek'
-		header: {
-			left: ''
-			center: 'prev, title, next'
-			right: ''
-		}
-		allDaySlot: false
-		titleFormat: {
-			week: "d[ MMMM][ yyyy]{ '-' d MMMM yyyy}"
-		}
-		buttonText: {
-			prev: 'prev'
-			next: 'next'
-		}
-		columnFormat: {
-			week: 'dddd'
-		}
-		height: 685
-	}
 	
 	# Refresh Modal Conent (when using remote)
 	$('body').on 'hidden.bs.modal', '.modal', (e) ->
