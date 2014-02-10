@@ -41,7 +41,5 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :production do
-	# This gem will also configure your app to serve assets in production (heroku)
-  gem 'rails_12factor'
-end
+# This gem will also configure your app to serve assets in production (heroku)
+gem 'rails_12factor', group: :production
